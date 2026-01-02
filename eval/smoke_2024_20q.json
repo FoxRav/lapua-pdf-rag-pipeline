@@ -1,0 +1,30 @@
+[
+  {"id":"T01","severity":"MUST","pdf_page":1,"element_type":"cover/heading","match":"exact","expected":"TILINPÄÄTÖS 2024"},
+  {"id":"T02","severity":"MUST","pdf_page":1,"element_type":"text","match":"exact","expected":"LAPUAN KAUPUNKI"},
+  {"id":"T03","severity":"MUST","pdf_page":2,"element_type":"heading","match":"exact","expected":"Sisällys"},
+
+  {"id":"T04","severity":"MUST","pdf_page":2,"element_type":"toc/text","match":"contains","expected":"Olennaiset tapahtumat toiminnassa ja taloudessa","expected_number":3},
+  {"id":"T05","severity":"MUST","pdf_page":2,"element_type":"toc/text","match":"contains","expected":"Kaupungin henkilöstö","expected_number":17},
+
+  {"id":"T06","severity":"MUST","pdf_page":3,"element_type":"toc/text","match":"contains","expected":"Tilinpäätöslaskelmat","expected_number":132},
+  {"id":"T07","severity":"MUST","pdf_page":3,"element_type":"toc/text","match":"contains","expected":"Liitetiedot","expected_number":138},
+  {"id":"T08","severity":"MUST","pdf_page":3,"element_type":"toc/text","match":"contains","expected":"Tilinpäätöksen allekirjoitus","expected_number":152},
+
+  {"id":"T09","severity":"MUST","pdf_page":4,"element_type":"text","match":"contains","expected":"ylijäämää 0,6","expected_raw_hint":"0,6 miljoonaa euroa"},
+
+  {"id":"T10","severity":"MUST","pdf_page":15,"element_type":"text","match":"contains","expected":"tulos oli -1,9","expected_raw_hint":"-1,9 milj. euroa"},
+  {"id":"T11","severity":"MUST","pdf_page":15,"element_type":"text","match":"contains","expected":"tuloveroprosentti oli 8,9","expected_raw_hint":"8,9 %"},
+  {"id":"T12","severity":"MUST","pdf_page":15,"element_type":"text","match":"contains","expected":"toimintakulut olivat 49,3","expected_raw_hint":"49,3 milj. euroa"},
+
+  {"id":"T13","severity":"MUST","pdf_page":6,"element_type":"text","match":"contains","expected":"Valtuusto kokoontui vuoden aikana 7 kertaa","expected_number":7},
+  {"id":"T14","severity":"MUST","pdf_page":6,"element_type":"text","match":"contains","expected":"Valtuustossa on 35 jäsentä","expected_number":35},
+  {"id":"T15","severity":"MUST","pdf_page":6,"element_type":"text","match":"contains","expected":"Kaupunginhallitus on pitänyt 19 kokousta","expected_number":19},
+
+  {"id":"T16","severity":"MUST","pdf_page":18,"element_type":"table","match":"table_contains","expected_cells":["2024","470"]},
+  {"id":"T17","severity":"MUST","pdf_page":18,"element_type":"table","match":"table_contains","expected_cells":["2024","578"]},
+
+  {"id":"T18","severity":"SHOULD","pdf_page":15,"element_type":"figure","match":"contains","expected":"Toimintakate\n-36,4 milj. €","expected_raw_hint":"-36,4 milj. €"},
+  {"id":"T19","severity":"SHOULD","pdf_page":15,"element_type":"figure","match":"contains","expected":"Vuosikate 7,5 milj. €","expected_raw_hint":"7,5 milj. €"},
+  {"id":"T20","severity":"SHOULD","pdf_page":15,"element_type":"figure","match":"contains","expected":"Investointien\ntulorahoitus\n107 %","expected_raw_hint":"107 %"}
+]
+

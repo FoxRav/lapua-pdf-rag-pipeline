@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "source_pdf": "Lapua-Tilinpaatos-2024.pdf",
+    "created": "2025-01-02",
+    "description": "Laaja smoke test (50+ kysymystä) koko PDF:n kattavuuden testaamiseen",
+    "pages_covered": "1-154 (koko asiakirja)"
+  },
+  "tests": [
+    {
+      "id": "T01", "severity": "MUST", "category": "cover",
+      "pdf_page": 1, "element_type": "heading", "match": "exact",
+      "expected": "TILINPÄÄTÖS 2024", "description": "Kannen pääotsikko"
+    },
+    {
+      "id": "T02", "severity": "MUST", "category": "cover",
+      "pdf_page": 1, "element_type": "text", "match": "exact",
+      "expected": "LAPUAN KAUPUNKI", "description": "Organisaation nimi"
+    },
+    {
+      "id": "T03", "severity": "MUST", "category": "toc",
+      "pdf_page": 2, "element_type": "heading", "match": "exact",
+      "expected": "Sisällys", "description": "Sisällysluettelon otsikko"
+    },
+    {
+      "id": "T04", "severity": "MUST", "category": "toc",
+      "pdf_page": 2, "element_type": "text", "match": "contains",
+      "expected": "Olennaiset tapahtumat", "expected_number": 3,
+      "description": "TOC: Olennaiset tapahtumat sivu 3"
+    },
+    {
+      "id": "T05", "severity": "MUST", "category": "toc",
+      "pdf_page": 2, "element_type": "text", "match": "contains",
+      "expected": "henkilöstö", "expected_number": 17,
+      "description": "TOC: Kaupungin henkilöstö sivu 17"
+    },
+    {
+      "id": "T06", "severity": "MUST", "category": "toc",
+      "pdf_page": 3, "element_type": "text", "match": "contains",
+      "expected": "Tilinpäätöslaskelmat", "expected_number": 132,
+      "description": "TOC: Tilinpäätöslaskelmat sivu 132"
+    },
+    {
+      "id": "T07", "severity": "MUST", "category": "toc",
+      "pdf_page": 3, "element_type": "text", "match": "contains",
+      "expected": "Liitetiedot", "expected_number": 138,
+      "description": "TOC: Liitetiedot sivu 138"
+    },
+    {
+      "id": "T08", "severity": "MUST", "category": "toc",
+      "pdf_page": 3, "element_type": "text", "match": "contains",
+      "expected": "allekirjoitus", "expected_number": 152,
+      "description": "TOC: Tilinpäätöksen allekirjoitus sivu 152"
+    },
+    {
+      "id": "T09", "severity": "MUST", "category": "number",
+      "pdf_page": 4, "element_type": "text", "match": "contains",
+      "expected": "0,6", "expected_raw_hint": "0,6 miljoonaa euroa",
+      "description": "Ylijäämä 0,6 miljoonaa euroa"
+    },
+    {
+      "id": "T10", "severity": "MUST", "category": "number_negative",
+      "pdf_page": 15, "element_type": "text", "match": "contains",
+      "expected": "-1,9", "expected_raw_hint": "-1,9 milj. euroa",
+      "expected_number": -1.9, "expected_sign": "negative", "expected_unit": "milj_eur",
+      "description": "RISKI: Miinusluku talousarvion tulos"
+    },
+    {
+      "id": "T11", "severity": "MUST", "category": "number_percent",
+      "pdf_page": 15, "element_type": "text", "match": "contains",
+      "expected": "8,9", "expected_raw_hint": "8,9 %",
+      "expected_number": 8.9, "expected_sign": "positive", "expected_unit": "percent",
+      "description": "RISKI: Prosenttiluku tuloveroprosentti"
+    },
+    {
+      "id": "T12", "severity": "MUST", "category": "number",
+      "pdf_page": 15, "element_type": "text", "match": "contains",
+      "expected": "49,3", "expected_raw_hint": "49,3 milj. euroa",
+      "expected_number": 49.3, "expected_sign": "positive", "expected_unit": "milj_eur",
+      "description": "Toimintakulut 49,3 milj."
+    },
+    {
+      "id": "T13", "severity": "MUST", "category": "governance",
+      "pdf_page": 6, "element_type": "text", "match": "contains",
+      "expected": "valtuusto", "expected_number": 7,
+      "description": "Valtuusto kokoontui 7 kertaa"
+    },
+    {
+      "id": "T14", "severity": "MUST", "category": "governance",
+      "pdf_page": 6, "element_type": "text", "match": "contains",
+      "expected": "35", "description": "Valtuustossa 35 jäsentä"
+    },
+    {
+      "id": "T15", "severity": "MUST", "category": "governance",
+      "pdf_page": 6, "element_type": "text", "match": "contains",
+      "expected": "19", "description": "Kaupunginhallitus 19 kokousta"
+    },
+    {
+      "id": "T16", "severity": "MUST", "category": "table",
+      "pdf_page": 18, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["470"], "description": "Henkilöstö vakinaiset 470"
+    },
+    {
+      "id": "T17", "severity": "MUST", "category": "table",
+      "pdf_page": 18, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["578"], "description": "Henkilöstö yhteensä 578"
+    },
+    {
+      "id": "T18", "severity": "SHOULD", "category": "figure",
+      "pdf_page": 15, "element_type": "figure", "match": "contains",
+      "expected": "36,4", "description": "Infografiikka toimintakate -36,4"
+    },
+    {
+      "id": "T19", "severity": "SHOULD", "category": "figure",
+      "pdf_page": 15, "element_type": "figure", "match": "contains",
+      "expected": "7,5", "description": "Infografiikka vuosikate 7,5"
+    },
+    {
+      "id": "T20", "severity": "SHOULD", "category": "figure",
+      "pdf_page": 15, "element_type": "figure", "match": "contains",
+      "expected": "107", "description": "Infografiikka investointien tulorahoitus 107%"
+    },
+    {
+      "id": "T21", "severity": "MUST", "category": "financial_statement",
+      "pdf_page": 133, "element_type": "table", "match": "contains",
+      "expected": "Toimintatuotot", "description": "Tuloslaskelma: Toimintatuotot-rivi (sivu 133)"
+    },
+    {
+      "id": "T22", "severity": "MUST", "category": "financial_statement",
+      "pdf_page": 134, "element_type": "table", "match": "contains",
+      "expected": "rahavirta", "description": "Rahoituslaskelma: rahavirta (sivu 134)"
+    },
+    {
+      "id": "T23", "severity": "MUST", "category": "financial_statement",
+      "pdf_page": 135, "element_type": "table", "match": "contains",
+      "expected": "VASTAAVAA", "description": "Tase: VASTAAVAA-otsikko (sivu 135)"
+    },
+    {
+      "id": "T24", "severity": "MUST", "category": "number_negative",
+      "pdf_page": 132, "element_type": "table", "match": "contains",
+      "expected": "Toimintakate", "description": "Tuloslaskelma: Toimintakate rivi"
+    },
+    {
+      "id": "T25", "severity": "MUST", "category": "number_negative",
+      "pdf_page": 133, "element_type": "table", "match": "contains",
+      "expected": "Myyntituotot", "description": "Tuloslaskelma: Myyntituotot rivi"
+    },
+    {
+      "id": "T26", "severity": "MUST", "category": "number",
+      "pdf_page": 133, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["4 798 233"], "description": "Tuloslaskelma: Myyntituotot arvo"
+    },
+    {
+      "id": "T27", "severity": "MUST", "category": "number",
+      "pdf_page": 141, "element_type": "table", "match": "contains",
+      "expected": "Valtionosuudet", "description": "Liitetiedot: Valtionosuudet"
+    },
+    {
+      "id": "T28", "severity": "MUST", "category": "number",
+      "pdf_page": 134, "element_type": "table", "match": "contains",
+      "expected": "Vuosikate", "description": "Rahoituslaskelma: Vuosikate"
+    },
+    {
+      "id": "T29", "severity": "MUST", "category": "number",
+      "pdf_page": 133, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["2024", "2023"], "description": "Tuloslaskelma: vuosivertailu"
+    },
+    {
+      "id": "T30", "severity": "MUST", "category": "balance_sheet",
+      "pdf_page": 135, "element_type": "table", "match": "contains",
+      "expected": "VASTAAVAA", "description": "Tase: VASTAAVAA"
+    },
+    {
+      "id": "T31", "severity": "MUST", "category": "balance_sheet",
+      "pdf_page": 135, "element_type": "table", "match": "contains",
+      "expected": "OMA", "description": "Tase: OMA PÄÄOMA"
+    },
+    {
+      "id": "T32", "severity": "MUST", "category": "balance_sheet",
+      "pdf_page": 135, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["127 401 774"], "description": "Tase: Pysyvät vastaavat arvo"
+    },
+    {
+      "id": "T33", "severity": "MUST", "category": "cash_flow",
+      "pdf_page": 134, "element_type": "table", "match": "contains",
+      "expected": "rahavirta", "description": "Rahoituslaskelma: rahavirta"
+    },
+    {
+      "id": "T34", "severity": "MUST", "category": "cash_flow",
+      "pdf_page": 137, "element_type": "table", "match": "contains",
+      "expected": "rahavirta", "description": "Konserni: rahavirta"
+    },
+    {
+      "id": "T35", "severity": "MUST", "category": "notes",
+      "pdf_page": 139, "element_type": "text", "match": "contains",
+      "expected": "Liitetiedot", "description": "Liitetiedot sivulla 139"
+    },
+    {
+      "id": "T36", "severity": "MUST", "category": "notes",
+      "pdf_page": 140, "element_type": "table", "match": "contains",
+      "expected": "Henkilöstö", "description": "Liitetiedot: Henkilöstötaulukko"
+    },
+    {
+      "id": "T37", "severity": "MUST", "category": "notes",
+      "pdf_page": 141, "element_type": "table", "match": "contains",
+      "expected": "Poistot", "description": "Liitetiedot: Poistotaulukko"
+    },
+    {
+      "id": "T38", "severity": "MUST", "category": "number",
+      "pdf_page": 10, "element_type": "text", "match": "contains",
+      "expected": "14", "description": "Asukasmäärä-luku (14xxx)"
+    },
+    {
+      "id": "T39", "severity": "MUST", "category": "signature",
+      "pdf_page": 153, "element_type": "text", "match": "contains",
+      "expected": "allekirjoitus", "description": "Allekirjoitussivu 153"
+    },
+    {
+      "id": "T40", "severity": "MUST", "category": "audit",
+      "pdf_page": 154, "element_type": "text", "match": "contains",
+      "expected": "tilintarkast", "description": "Tilintarkastuskertomus sivu 154"
+    },
+    {
+      "id": "T41", "severity": "MUST", "category": "section",
+      "pdf_page": 130, "element_type": "text", "match": "contains",
+      "expected": "Investoint", "description": "Investointiosio"
+    },
+    {
+      "id": "T42", "severity": "MUST", "category": "section",
+      "pdf_page": 131, "element_type": "text", "match": "contains",
+      "expected": "RAHOITUSOSAN", "description": "Rahoitusosan toteutuminen"
+    },
+    {
+      "id": "T43", "severity": "MUST", "category": "number",
+      "pdf_page": 134, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["7502 392"], "description": "Rahoituslaskelma: Vuosikate arvo"
+    },
+    {
+      "id": "T44", "severity": "MUST", "category": "number",
+      "pdf_page": 133, "element_type": "table", "match": "contains",
+      "expected": "6 832 049", 
+      "description": "Tuloslaskelma: Poistot 6 832 049 euroa"
+    },
+    {
+      "id": "T45", "severity": "MUST", "category": "number",
+      "pdf_page": 143, "element_type": "table", "match": "contains",
+      "expected": "Saamiset", "description": "Liitetiedot: Saamisten erittely"
+    },
+    {
+      "id": "T46", "severity": "SHOULD", "category": "group",
+      "pdf_page": 136, "element_type": "table", "match": "contains",
+      "expected": "Konserni", "description": "Konsernitilinpäätös"
+    },
+    {
+      "id": "T47", "severity": "SHOULD", "category": "investments",
+      "pdf_page": 130, "element_type": "table", "match": "contains",
+      "expected": "INVESTOINT", "description": "Investointitaulukko"
+    },
+    {
+      "id": "T48", "severity": "SHOULD", "category": "commitments",
+      "pdf_page": 145, "element_type": "text", "match": "contains",
+      "expected": "Vuokravastuut", "description": "Vuokravastuut"
+    },
+    {
+      "id": "T49", "severity": "MUST", "category": "number",
+      "pdf_page": 135, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["2024", "2023"], "description": "Tase: vuosivertailu 2024/2023"
+    },
+    {
+      "id": "T50", "severity": "MUST", "category": "number",
+      "pdf_page": 133, "element_type": "table", "match": "table_contains",
+      "expected_cells": ["2024", "2023"], "description": "Tuloslaskelma: vuosivertailu 2024/2023"
+    }
+  ]
+}
+

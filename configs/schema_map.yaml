@@ -1,0 +1,37 @@
+# Schema mapping: normalize Finnish financial statement line items to canonical keys
+
+income_statement:
+  "toimintatuotot": "operating_revenue"
+  "toimintakulut": "operating_expenses"
+  "toimintakate": "operating_margin"
+  "vuosikate": "annual_margin"
+  "poistot": "depreciation"
+  "tilikauden tulos": "net_income"
+  "tilikauden voitto": "net_income"
+  "tilikauden tappio": "net_loss"
+
+balance_sheet:
+  "rahavarat": "cash_and_equivalents"
+  "rahavarojen muutos": "cash_change"
+  "lainat": "loans"
+  "velat": "liabilities"
+  "omavaraisuus": "equity"
+  "vastaavat": "assets"
+
+cash_flow:
+  "kassavirtalaskelma": "cash_flow_statement"
+  "toiminnan kassavirta": "operating_cash_flow"
+  "investointien kassavirta": "investing_cash_flow"
+  "rahoituksen kassavirta": "financing_cash_flow"
+
+investments:
+  "investoinnit": "investments"
+  "käyttöomaisuus": "fixed_assets"
+  "rakennukset": "buildings"
+  "koneet ja laitteet": "machinery"
+
+contingent_liabilities:
+  "vastuut": "contingent_liabilities"
+  "takaukset": "guarantees"
+  "sopimusvastuut": "contractual_liabilities"
+

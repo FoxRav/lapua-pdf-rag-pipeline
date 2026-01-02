@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "source_pdf": "Lapua-Tilinpaatos-2024.pdf",
+    "created": "2025-01-02",
+    "description": "20 kysymyksen smoke test PDF-parserin toimivuuden testaamiseen"
+  },
+  "questions": [
+    {
+      "id": "P01",
+      "question": "Mikä on asiakirjan pääotsikko?",
+      "expected_value": "TILINPÄÄTÖS 2024",
+      "expected_page": 1,
+      "expected_type": "heading",
+      "must_contain": ["TILINPÄÄTÖS", "2024", "TILINPAATOS"]
+    },
+    {
+      "id": "P02",
+      "question": "Mikä on kuntaorganisaation nimi kannessa?",
+      "expected_value": "Lapuan kaupunki",
+      "expected_page": 1,
+      "expected_type": "text",
+      "must_contain": ["LAPUAN", "KAUPUNKI"]
+    },
+    {
+      "id": "P03",
+      "question": "Mikä on sisällysluettelon otsikko?",
+      "expected_value": "Sisällys",
+      "expected_page": 2,
+      "expected_type": "heading",
+      "must_contain": ["Sisällys", "Sisallys"]
+    },
+    {
+      "id": "P04",
+      "question": "Mikä on sisällysluettelon kohta 1?",
+      "expected_value": "Olennaiset tapahtumat toiminnassa ja taloudessa",
+      "expected_page": 2,
+      "expected_type": "text",
+      "must_contain": ["Olennaiset", "tapahtumat", "toiminnassa"]
+    },
+    {
+      "id": "P05",
+      "question": "Missä sisällysluettelon mukaan alkaa Tilinpäätöslaskelmat?",
+      "expected_value": "132",
+      "expected_page": 3,
+      "expected_type": "text",
+      "must_contain": ["132", "Tilinpäätöslaskelmat"]
+    },
+    {
+      "id": "P06",
+      "question": "Mikä on sivun yläotsikko pdf_page=4 alussa?",
+      "expected_value": "TOIMINTAKERTOMUS",
+      "expected_page": 4,
+      "expected_type": "heading",
+      "must_contain": ["TOIMINTAKERTOMUS", "TASEKIRJA"]
+    },
+    {
+      "id": "P07",
+      "question": "Kuinka monta kertaa valtuusto kokoontui vuonna 2024?",
+      "expected_value": "7",
+      "expected_page": 6,
+      "expected_type": "text",
+      "must_contain": ["7"],
+      "numeric_value": 7
+    },
+    {
+      "id": "P08",
+      "question": "Kuinka monta jäsentä valtuustossa on?",
+      "expected_value": "35",
+      "expected_page": 6,
+      "expected_type": "text",
+      "must_contain": ["35"],
+      "numeric_value": 35
+    },
+    {
+      "id": "P09",
+      "question": "Mikä on vuoden 2024 lopun asukasmäärä (ennakkotieto)?",
+      "expected_value": "14 029",
+      "expected_page": 10,
+      "expected_type": "text",
+      "must_contain": ["14029", "14 029"],
+      "numeric_value": 14029
+    },
+    {
+      "id": "P10",
+      "question": "Mikä on otsikko sivulla, jossa käsitellään talouskehitystä?",
+      "expected_value": "Vuoden 2024 talouskehitys sekä muut olennaiset muutokset toiminnassa ja taloudessa",
+      "expected_page": 12,
+      "expected_type": "heading",
+      "must_contain": ["talouskehitys", "2024", "olennaiset"]
+    },
+    {
+      "id": "P11",
+      "question": "Mitä kuvaa infografiikan pääotsikko?",
+      "expected_value": "Tilinpäätöksen 2024 keskeiset luvut",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["Tilinpäätöksen", "keskeiset", "luvut"]
+    },
+    {
+      "id": "P12",
+      "question": "Mitkä ovat infografiikan Toimintatuotot ja Toimintakulut?",
+      "expected_value": "11 milj. € ja -47,7 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["11", "47,7", "47.7"],
+      "numeric_values": [11.0, -47.7]
+    },
+    {
+      "id": "P13",
+      "question": "Mikä on infografiikan Toimintakate?",
+      "expected_value": "-36,4 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["36,4", "36.4"],
+      "numeric_value": -36.4
+    },
+    {
+      "id": "P14",
+      "question": "Mikä on infografiikan Verotulot ja Valtionosuudet?",
+      "expected_value": "31,2 milj. € ja 13,9 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["31,2", "13,9", "31.2", "13.9"],
+      "numeric_values": [31.2, 13.9]
+    },
+    {
+      "id": "P15",
+      "question": "Mikä on infografiikan Vuosikate?",
+      "expected_value": "7,5 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["7,5", "7.5"],
+      "numeric_value": 7.5
+    },
+    {
+      "id": "P16",
+      "question": "Mikä on infografiikan Poistot?",
+      "expected_value": "-6,9 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["6,9", "6.9"],
+      "numeric_value": -6.9
+    },
+    {
+      "id": "P17",
+      "question": "Mikä on infografiikan Tilikauden ylijäämä?",
+      "expected_value": "0,6 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["0,6", "0.6"],
+      "numeric_value": 0.6
+    },
+    {
+      "id": "P18",
+      "question": "Mikä on infografiikan Lainakanta ja muutos?",
+      "expected_value": "64,3 milj. € ja +1,2 milj. €",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["64,3", "1,2", "64.3", "1.2"],
+      "numeric_values": [64.3, 1.2]
+    },
+    {
+      "id": "P19",
+      "question": "Mikä on infografiikan Taseen ylijäämä ja €/asukas?",
+      "expected_value": "27,4 milj. € ja 1 951 €/asukas",
+      "expected_page": 15,
+      "expected_type": "figure",
+      "must_contain": ["27,4", "1951", "1 951"],
+      "numeric_values": [27.4, 1951]
+    },
+    {
+      "id": "P20",
+      "question": "Mikä on henkilöstön määrä 31.12.2024 taulukon mukaan?",
+      "expected_value": "470",
+      "expected_page": 140,
+      "expected_type": "table",
+      "must_contain": ["470"],
+      "numeric_value": 470
+    }
+  ]
+}
+

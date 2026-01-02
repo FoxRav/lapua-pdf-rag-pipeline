@@ -1,0 +1,35 @@
+# Pipeline configuration
+
+ingest:
+  fallback_to_marker: true  # Use Marker if Docling fails
+
+normalize:
+  min_confidence: 0.5  # Minimum confidence for number parsing
+
+extract:
+  required_statements:
+    - income_statement
+    - balance_sheet
+  optional_statements:
+    - cash_flow
+    - investments
+    - contingent_liabilities
+    - notes_index
+
+chunk:
+  section_chunk_types:
+    - heading
+    - paragraph
+  max_section_chunk_size: 2000  # characters
+  max_table_chunk_rows: 50
+
+index:
+  bm25_weight: 0.4
+  vector_weight: 0.6
+  top_k_initial: 50
+  top_k_rerank: 10
+  top_k_final: 5
+
+eval:
+  reconcile_tolerance: 0.01  # 1% tolerance for reconciliation checks
+
