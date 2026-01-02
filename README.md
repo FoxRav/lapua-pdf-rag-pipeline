@@ -75,9 +75,15 @@ Vastaus: "Poistot olivat 6 832 049 euroa. (sivu 140, tuloslaskelma)"
 ### 1. Aktivoi ympäristö (aina ensin!)
 
 ```powershell
-cd F:\-DEV-\33.Lapua-tilinpäätös2025-20250201
+# Windows
+cd <projektin-kansio>
 .\venv_gpu\Scripts\Activate.ps1
 $env:PYTHONPATH = "."
+
+# Linux/Mac
+cd <projektin-kansio>
+source venv_gpu/bin/activate
+export PYTHONPATH="."
 ```
 
 ### 2. Kysy kysymys tilinpäätöksestä
@@ -240,7 +246,7 @@ LÄHTEET:
 
 ### PDF_Parser-integraatio (uusi)
 
-Koska skannatut PDF:t ovat haastavia, käytetään `F:\-DEV-\PDF_Parser`-projektin PP-StructureV3 (PaddleOCR) parseria:
+Koska skannatut PDF:t ovat haastavia, käytetään erillisen [PDF_Parser](https://github.com/FoxRav/pdf-parser)-projektin PP-StructureV3 (PaddleOCR) parseria:
 
 ```bash
 # Tuo taulukot PDF_Parser-projektista
