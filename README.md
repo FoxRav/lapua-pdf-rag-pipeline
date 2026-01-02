@@ -86,14 +86,33 @@ source venv_gpu/bin/activate
 export PYTHONPATH="."
 ```
 
-### 2. Kysy kysymys tilinpäätöksestä
+### 2. Rakenna indeksi (kerran)
 
 ```powershell
-# Yksinkertainen haku (näyttää löydetyt tekstit)
-python -m src.pipeline.query 2024 "Mikä on vuosikate?"
+# Parsii 25 PDF:ää
+python -m src.pipeline.batch_ingest data/manifest_25pdf.csv
 
-# Täysi vastaus tekoälyltä (käyttää Lapua-LLM:ää)
-python -m src.pipeline.rag_answer 2024 "Mikä on vuosikate euroina?"
+# Luo taulukko-chunkit (Lapua 2024)
+python -m src.pipeline.create_table_chunks
+
+# Rakenna complete index (teksti + taulukot)
+python -m src.pipeline.build_complete_index
+```
+
+### 3. Hae ja kysy
+
+```powershell
+# Hybridi-haku + reranking (paras laatu)
+python -m src.pipeline.query_complete "Mikä on vuosikate?"
+
+# Haku ilman rerankkausta (nopeampi)
+python -m src.pipeline.query_complete "henkilöstö 470" --no-rerank
+
+# Vain taulukoista
+python -m src.pipeline.query_complete "tuloslaskelma poistot" --tables-only
+
+# LLM-vastaus evidenssillä
+python -m src.pipeline.answer_with_evidence "Paljonko oli poistoja?"
 ```
 
 ### 3. Esimerkkejä kysymyksistä
@@ -224,57 +243,78 @@ LÄHTEET:
 
 ---
 
-## Nykytilanne (2025-01-02)
+## Nykytilanne (2025-01-03)
 
-### Toimiva GPU-tuettu pipeline
-
-| Vaihe | Moduuli | GPU-käyttö | Tila |
-|-------|---------|------------|------|
-| 00_ingest | `00_ingest_docling.py` | OCR: CPU (RapidOCR) | ✅ Toimii |
-| 01_normalize | `01_normalize.py` | - | ✅ Toimii |
-| 02_extract | `02_extract_schema.py` | - | ✅ Toimii |
-| 03_chunk | `03_chunk.py` | - | ✅ Toimii |
-| 04_index | `04_index.py` | **GPU (CUDA)** embeddings | ✅ Toimii |
-| 05_eval | `05_eval.py` | - | ✅ Toimii |
-
-### Prosessoidut dokumentit (2024)
-
-| Dokumentti | Tyyppi | Sivut | Elementit | Taulukot | Lähde |
-|-----------|--------|-------|-----------|----------|-------|
-| Lapua-Tilinpaatos-2024.pdf | Skannattu (OCR) | 154 | 610 | **123** | PDF_Parser (PP-StructureV3) |
-| Lapuan-kaupunki-Talousarvio-2025.pdf | Natiivi PDF | 117 | 116 | 74 | pdfplumber |
-
-### PDF_Parser-integraatio (uusi)
-
-Koska skannatut PDF:t ovat haastavia, käytetään erillisen [PDF_Parser](https://github.com/FoxRav/pdf-parser)-projektin PP-StructureV3 (PaddleOCR) parseria:
-
-```bash
-# Tuo taulukot PDF_Parser-projektista
-python -m src.pipeline.import_pdfparser 2024
-```
-
-**Tulokset:**
-- 123 taulukkoa tunnistettu ja tuotu
-- Sisältää tuloslaskelma, rahoituslaskelma, tase, konsernitilinpäätös
-- 209 low-confidence solua merkitty (lähinnä viivaelementtejä)
-- Ei kirjanpidon validointivirheitä
-
-### Pipeline-tulokset (päivitetty 2025-01-02)
-
-- **Normalize**: 11015 taulukkosolua, 61.5% numeerisia
-- **Extract**: 509 line itemiä (17 tuloslaskelmaa, 7 tasetta, 1 rahoituslaskelma, 2 investointia)
-- **Chunk**: 478 chunkkia (269 teksti + 199 taulukko + 10 statement)
-- **Index**: Hybridi-indeksi (BM25 + FAISS BGE-M3), GPU-embeddings (~61s)
-- **RAG**: Toimiva kysely + LLM-vastausten generointi (Lapua-LLM LoRA)
-
-### Kuvakansiot
+### 🏗️ Arkkitehtuuri v2.0
 
 ```
-data/out/2024/
-├── page_images/      # 154 sivukuvaa (PDF_Parserista)
-├── table_grids/      # 212 taulukkogridia (PP-StructureV3)
-├── tables/           # 181 CSV-taulukkoa
-└── tilinpaatos_tables/  # 147 tilinpäätöstaulukkoa
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         COMPLETE INDEX                                  │
+│                    1773 chunks (545 text + 1228 table)                 │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   📄 25 PDF:ää ─────▶ 🔧 batch_ingest ─────▶ 545 text chunks          │
+│                              │                                          │
+│                              ▼                                          │
+│   📊 Taulukot ──────▶ 🧮 create_table_chunks ─▶ 1228 table-row chunks │
+│   (123 PaddleOCR)                                                       │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                         RETRIEVAL PIPELINE                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   🔍 Query ──────▶ Hybrid Search ──────▶ Reranker ──────▶ Top-K        │
+│                    (BM25 + FAISS)       (BGE-v2-m3)                     │
+│                    50 candidates         cross-encoder                  │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                         ANSWER GENERATION                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   📝 Context ─────▶ Qwen2.5-1.5B + LoRA ─────▶ Structured Answer       │
+│   (top-k chunks)   (CCG-FAKTUM/lapua-llm-v2)  (evidence + numbers)     │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Pipeline-komponentit
+
+| Vaihe | Moduuli | GPU | Versio | Tila |
+|-------|---------|-----|--------|------|
+| Ingest | `batch_ingest.py` | - | 2.0 | ✅ |
+| Table chunks | `create_table_chunks.py` | - | 2.0 | ✅ |
+| Complete index | `build_complete_index.py` | GPU (BGE-M3) | 2.0 | ✅ |
+| Query + Rerank | `query_complete.py` | GPU | 2.0 | ✅ |
+| LLM Answer | `answer_with_evidence.py` | GPU (4-bit) | 2.0 | ✅ |
+| Smoke tests | `run_smoke_eval_v2.py` | - | 2.0 | ✅ |
+
+### Prosessoidut dokumentit
+
+| Lähde | Dokumentteja | Tekstichunkit | Taulukkochunkit |
+|-------|--------------|---------------|-----------------|
+| 25 PDF batch | 25 | 545 | - |
+| Lapua 2024 (PaddleOCR) | 1 | - | 1228 |
+| **Yhteensä** | **25** | **545** | **1228** |
+
+### Mallit
+
+| Malli | Tarkoitus | GPU VRAM |
+|-------|-----------|----------|
+| `BAAI/bge-m3` | Embeddings (1024-dim) | ~1.5 GB |
+| `BAAI/bge-reranker-v2-m3` | Cross-encoder reranking | ~1.0 GB |
+| `Qwen2.5-1.5B + LoRA` | LLM vastaukset (4-bit) | ~2.0 GB |
+
+### Smoke test -tulokset (50 testiä)
+
+```
+STRICT_PASS:   49/50 (98%)
+TOLERANT_PASS:  1/50 (2%)
+FAIL:           0/50 (0%)
+
+CI Gate A (functionality): ✅ PASS
+CI Gate B (quality):       ✅ PASS
+CI Gate C (OCR):           ✅ PASS
+CI Gate D (critical):      ✅ PASS
 ```
 
 ---
@@ -372,39 +412,66 @@ python -m src.pipeline.04_index 2024
 python -m src.pipeline.05_eval 2024
 ```
 
-### RAG-haku tilinpäätöstiedoista
+### RAG-haku (Complete Index + Reranking)
 
 ```bash
-# Yksittäinen kysymys
-python -m src.pipeline.query 2024 "Mikä on vuosikate?"
-python -m src.pipeline.query 2024 "Paljonko on lainakanta?"
-python -m src.pipeline.query 2024 "tuloslaskelma toimintakate"
+# Hybridi-haku + reranking (paras laatu)
+python -m src.pipeline.query_complete "Mikä on vuosikate?"
 
-# Interaktiivinen tila
-python -m src.pipeline.query 2024
+# Haku ilman rerankkausta (nopeampi)
+python -m src.pipeline.query_complete "henkilöstö 470" --no-rerank
+
+# Vain taulukoista
+python -m src.pipeline.query_complete "tuloslaskelma poistot" --tables-only
 ```
 
-**Esimerkkitulos:**
+**Esimerkkitulos (reranked):**
 ```
---- Tulos 1 (score: 0.787) [Sivu 28] [Taulukko: table_p28...] ---
+--- Tulos 1 (rerank_score: 0.929) [doc: lapua_2024] [Sivu 28] ---
 TULOSLASKELMAN TUNNUSLUVUT | 2024 | 2023
 Vuosikate/poistot, % | 109,3% | 167,7%
 Vuosikate €/asukas | 535€ | 794€
 
---- Tulos 2 (score: 0.762) [Sivu 32] [Taulukko: table_p32...] ---
-Vuosikate | 7502 | 11140
+--- Tulos 2 (rerank_score: 0.847) [doc: lapua_2024] [Sivu 140] ---
+Tuloslaskelma | Vuosikate | 7 502 411,04 | 11 140 320,75
 ```
 
-RAG käyttää hybridi-hakua (BM25 + vektori, GPU-embeddings).
-
-### RAG + Lapua-LLM (vastausten generointi)
+### LLM-vastaus evidenssillä
 
 ```bash
-# Käytä Lapua-LLM LoRA-adapteria vastausten generointiin
-python -m src.pipeline.rag_answer 2024 "Paljonko on vuosikate euroina?"
+# Vastaus strukturoidussa muodossa
+python -m src.pipeline.answer_with_evidence "Paljonko oli poistoja vuonna 2024?"
+```
 
-# Interaktiivinen tila
-python -m src.pipeline.rag_answer 2024
+**Esimerkkitulos:**
+```
+============================================================
+KYSYMYS: Paljonko oli poistoja vuonna 2024?
+============================================================
+
+VASTAUS:
+
+Johtopäätös: Poistot olivat 6 832 049,39 euroa vuonna 2024.
+
+Todisteet:
+- Sivu 140, taulukko tuloslaskelma
+
+Poimitut luvut:
+- 6 832 049,39 € (suunnitelman mukaiset poistot)
+- -34 080,94 € (arvonalentumiset)
+
+Lähde varmennettu: ✅ Luku löytyy evidenssistä
+------------------------------------------------------------
+```
+
+### Vanha yksittäinen dokumenttihaku
+
+```bash
+# Alkuperäinen haku (1 dokumentti)
+python -m src.pipeline.query 2024 "Mikä on vuosikate?"
+
+# LLM-vastaus (1 dokumentti)
+python -m src.pipeline.rag_answer 2024 "Paljonko on vuosikate euroina?"
 ```
 
 **LoRA-adapteri:** [CCG-FAKTUM/lapua-llm-v2](https://huggingface.co/CCG-FAKTUM/lapua-llm-v2)
@@ -453,12 +520,18 @@ Käytetään kahta hakumenetelmää rinnakkain:
 - **Indeksi:** FAISS IndexFlatL2
 - **Toiminta:** Kosini-samankaltaisuus vektoriavaruudessa
 - **Vahvuus:** Semanttinen ymmärrys, synonyymit
-- **Laite:** CPU (indeksi pieni, ~478×1024)
+- **Laite:** CPU (indeksi ~1773×1024)
 
-#### C) Yhdistäminen
+#### C) Yhdistäminen + Reranking
 ```python
+# Hybridi-scoring (50 kandidaattia)
 hybrid_score = 0.5 * bm25_score + 0.5 * vector_score
-top_chunks = sorted(all_chunks, by=hybrid_score)[:5]
+candidates = sorted(all_chunks, by=hybrid_score)[:50]
+
+# Reranking (cross-encoder)
+reranker = CrossEncoder("BAAI/bge-reranker-v2-m3")
+reranked = reranker.score(query, candidates)
+top_chunks = sorted(reranked, by=rerank_score)[:5]
 ```
 
 ### Vaihe 3: Kontekstin muodostus
@@ -519,7 +592,8 @@ outputs = model.generate(
 |-------|-------|------|-------|
 | Embedding | `BAAI/bge-m3` | 568M | GPU (CUDA) |
 | Sparse-haku | BM25Okapi | - | CPU |
-| Vektori-indeksi | FAISS IndexFlatL2 | 478×1024 | CPU |
+| Vektori-indeksi | FAISS IndexFlatL2 | 1773×1024 | CPU |
+| **Reranker** | `BAAI/bge-reranker-v2-m3` | ~300M | GPU |
 | LLM (pohja) | `Qwen/Qwen2.5-1.5B-Instruct` | 1.5B | GPU (4-bit) |
 | LLM (LoRA) | `CCG-FAKTUM/lapua-llm-v2` | ~10M | GPU |
 
@@ -535,14 +609,18 @@ outputs = model.generate(
 | **Ensimmäinen kysely** | **~60s** (sis. mallien lataus) |
 | **Seuraavat kyselyt** | **~10s** |
 
-### Indeksin sisältö (2024)
+### Indeksin sisältö (Complete Index v2.0)
 
-| Chunk-tyyppi | Määrä | Kuvaus |
-|--------------|-------|--------|
-| Teksti (sivut) | 269 | Sivukohtaiset tekstikappaleet |
-| Taulukot | 199 | Markdown-muotoiset taulukot |
-| Tilinpäätösrivit | 10 | Ryhmitellyt line itemit |
-| **Yhteensä** | **478** | |
+| Chunk-tyyppi | Määrä | Lähde |
+|--------------|-------|-------|
+| Teksti (25 PDF) | 545 | batch_ingest.py |
+| Taulukon rivit | 1228 | create_table_chunks.py (PaddleOCR) |
+| **Yhteensä** | **1773** | build_complete_index.py |
+
+#### Taulukko-chunkit (Lapua 2024)
+- 123 taulukkoa → 1228 rivi-chunkkia
+- Jokainen rivi sisältää: taulukon otsikko + sarakkeiden nimet + rivin data
+- Mahdollistaa tarkan haun taulukko-datasta
 
 ---
 
@@ -612,38 +690,43 @@ outputs = model.generate(
 ## Repo-rakenne
 
 ```
-finstmt-rag/
+lapua-pdf-rag-pipeline/
 ├── data/
-│   ├── raw/                    # Alkuperäiset PDF:t
-│   │   └── {YEAR}/             # Esim. 2024/
-│   ├── interim/                # Väliaikaiset tiedostot
-│   └── out/                    # Prosessoidut tiedostot
-│       └── {YEAR}/
-│           ├── document_*.json # Kanoninen dokumenttimalli
-│           ├── document_*.md   # Markdown-versio
-│           ├── tables/         # Taulukot CSV:nä
-│           ├── normalized_*.   # Normalisoidut datat
-│           ├── financial_*.json# Tilinpäätösskeema
-│           ├── *_chunks.jsonl  # RAG-chunkit
-│           └── index/          # BM25 + FAISS indeksit
+│   ├── manifest_25pdf.csv           # 25 PDF:n lista prosessointiin
+│   └── out/
+│       ├── 2024/                    # Lapua 2024 (PaddleOCR)
+│       │   ├── tables.jsonl         # 1228 taulukko-chunkkia
+│       │   └── tables_from_pdfparser.json
+│       ├── parsed/{doc_id}/         # Batch-prosessoidut dokumentit
+│       │   ├── document.jsonl
+│       │   └── chunks.jsonl
+│       └── complete_index/          # Unified index (25 PDF + taulukot)
+│           ├── bm25.pkl             # BM25-indeksi
+│           ├── faiss.index          # FAISS-indeksi (1773×1024)
+│           ├── chunks_metadata.json # Chunk-metadata
+│           └── version.json         # Versiointi
 ├── src/
-│   ├── common/                 # Yhteiset moduulit
-│   │   ├── ids.py              # Stabiilit ID:t (hash)
-│   │   ├── io.py               # JSON/JSONL/Parquet I/O
-│   │   ├── num_parse.py        # Suomalaisten lukujen parsinta
-│   │   ├── schema.py           # Pydantic-mallit (Document, Element, Table)
-│   │   └── text_clean.py       # Tekstin siivous
-│   └── pipeline/               # ETL-vaiheet (00-05)
-├── configs/
-│   ├── pipeline.yaml           # Pipeline-asetukset
-│   ├── schema_map.yaml         # Tilinpäätösrivien mappaus
-│   └── stopwords_fi.txt        # Suomalaiset stopwordit
-├── tests/                      # Pytest-testit
-├── venv/                       # CPU-virtuaaliympäristö
-├── venv_gpu/                   # GPU-virtuaaliympäristö (CUDA)
-├── Makefile                    # Pipeline-komennot
-├── pyproject.toml              # Python-projektin konfiguraatio
-└── README.md                   # Tämä tiedosto
+│   ├── common/                      # Yhteiset moduulit
+│   │   ├── ids.py, io.py, num_parse.py, schema.py, text_clean.py
+│   └── pipeline/
+│       ├── 00_ingest_docling.py     # PDF → JSON
+│       ├── 01_normalize.py          # Numeronormalisointi
+│       ├── 02_extract_schema.py     # Tilinpäätösrivit
+│       ├── 03_chunk.py              # Chunkkaus
+│       ├── 04_index.py              # Indeksointi (1 doc)
+│       ├── batch_ingest.py          # ⭐ 25 PDF prosessointi
+│       ├── create_table_chunks.py   # ⭐ Taulukko-chunkit
+│       ├── build_complete_index.py  # ⭐ Unified index
+│       ├── query_complete.py        # ⭐ Hybridi-haku + reranking
+│       ├── reranker.py              # ⭐ Cross-encoder reranker
+│       └── answer_with_evidence.py  # ⭐ LLM + evidenssi
+├── eval/
+│   ├── smoke_2024_full.json         # 50 smoke-testiä
+│   ├── run_smoke_eval_v2.py         # Smoke test runner
+│   └── smoke_run_v2_*.json          # Testiraportit
+├── tests/                           # Pytest-testit
+├── configs/                         # YAML-konfiguraatiot
+└── README.md                        # Tämä tiedosto
 ```
 
 ---
