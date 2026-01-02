@@ -1,13 +1,54 @@
 # 🏛️ Lapua PDF RAG Pipeline
 
-### Kuntatalouden dokumentit → strukturoitu data → älykäs Q&A
-
-> **Yksi komento. Satoja sivuja. Sekunneissa vastaus.**  
-> Muuta mikä tahansa kuntatalouden PDF (tilinpäätös, talousarvio, toimintakertomus) älykkääksi tietopankiksi, jolta voit kysyä mitä vain suomeksi.
+### PDF-dokumentit → Strukturoitu data → 1024-dimensioinen vektoriavaruus → Älykäs Q&A
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 [![GPU Accelerated](https://img.shields.io/badge/GPU-CUDA%2012.4-brightgreen.svg)](#gpu-tuki)
+[![Embedding: BGE-M3](https://img.shields.io/badge/Embedding-BGE--M3-orange.svg)](#arkkitehtuuri)
+
+---
+
+## 🎯 Mitä tämä tekee?
+
+**Syötä sisään PDF-tiedostoja — saat ulos AI-valmiin tietokannan.**
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  📄 PDF:t       │ ─▶ │  🔧 PARSE       │ ─▶ │  🧮 EMBED       │ ─▶ │  🎯 QUERY       │
+│  1...N kpl      │    │  Teksti+Taulut  │    │  1024-dim       │    │  Semanttinen    │
+│  Tilinpäätökset │    │  Strukturoitu   │    │  Vektori-       │    │  haku + LLM     │
+│  Talousarviot   │    │  JSON/CSV       │    │  avaruus        │    │  vastaus        │
+└─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### Pipeline tuottaa:
+
+| Output | Formaatti | Käyttötarkoitus |
+|--------|-----------|-----------------|
+| **Strukturoitu teksti** | JSONL | Sivu, kappale, bbox, metadata |
+| **Taulukkodata** | CSV + JSON | Rivit, sarakkeet, solut — laskettavissa |
+| **Vektori-indeksi** | FAISS (1024-dim) | Semanttinen samankaltaisuushaku |
+| **BM25-indeksi** | Pickle | Avainsanapohjainen haku |
+| **Chunk-metadata** | JSON | Jäljitettävyys: sivu, taulukko, lähde |
+
+### Yksi dokumentti vai tuhat?
+
+```bash
+# Yksi PDF
+python -m src.pipeline.batch_ingest manifest.csv --limit 1
+
+# Kaikki 25 PDF:ää
+python -m src.pipeline.batch_ingest manifest.csv
+
+# Skaalautuu: 2000 PDF:ää samalla tavalla
+```
+
+**Lopputulos:** Tekoälyvalmiiksi prosessoitu dokumenttikokoelma, josta voit:
+- 🔍 Hakea semanttisesti ("Mikä oli vuosikate?")
+- 📊 Ajaa analytiikkaa (taulukot CSV:nä)
+- 🤖 Generoida vastauksia LLM:llä (RAG)
+- ✅ Validoida parserin laatu (50+ smoke-testiä)
 
 ---
 
@@ -19,6 +60,7 @@
 | 🔍 Etsi Ctrl+F | 🧠 Kysy luonnollisella kielellä |
 | 📊 Taulukot kuvina | 📈 Strukturoitu, laskettava data |
 | 🤷 "Missä tämä luku on?" | 📍 Sivunumero + tarkka lähde |
+| 🗂️ 25 dokumenttia | 🚀 Yksi yhtenäinen vektori-indeksi |
 
 **Esimerkki:**
 ```
