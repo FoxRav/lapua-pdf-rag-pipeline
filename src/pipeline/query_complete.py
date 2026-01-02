@@ -17,6 +17,8 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+from src.pipeline.reranker import Reranker
+
 sys.stdout.reconfigure(encoding='utf-8')
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
@@ -115,7 +117,12 @@ def format_result(result: dict, idx: int) -> str:
     type_icon = "📊" if "table" in chunk_type else "📄"
     
     lines.append(f"[{idx}] {type_icon} {chunk_type.upper()} | {source} | Sivu {page}")
-    lines.append(f"    Score: {result['score']:.3f} (BM25: {result['bm25_score']:.3f}, Vector: {result['vector_score']:.3f})")
+    
+    # Score line
+    if "rerank_score" in result:
+        lines.append(f"    Rerank: {result['rerank_score']:.3f} (was #{result.get('original_rank', '?')})")
+    else:
+        lines.append(f"    Score: {result['score']:.3f} (BM25: {result['bm25_score']:.3f}, Vector: {result['vector_score']:.3f})")
     
     # Table evidence
     if "table_id" in result:
@@ -136,6 +143,7 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=5, help="Number of results")
     parser.add_argument("--tables-only", action="store_true", help="Only search tables")
     parser.add_argument("--text-only", action="store_true", help="Only search text")
+    parser.add_argument("--no-rerank", action="store_true", help="Disable reranking")
     args = parser.parse_args()
     
     print(f"🔍 Query: {args.query}")
@@ -166,10 +174,26 @@ def main() -> None:
     
     # Search
     print("Searching...")
-    results = search_hybrid(args.query, chunks, bm25, texts, faiss_index, model, args.top_k)
+    # Get more candidates for reranking
+    initial_k = args.top_k * 10 if not args.no_rerank else args.top_k
+    results = search_hybrid(args.query, chunks, bm25, texts, faiss_index, model, initial_k)
+    
+    # Rerank if enabled
+    if not args.no_rerank and results:
+        print("Reranking with cross-encoder...")
+        reranker = Reranker()
+        reranked = reranker.rerank(args.query, results, top_k=args.top_k)
+        
+        # Convert back to dict format with rerank scores
+        results = []
+        for r in reranked:
+            chunk = r.chunk.copy()
+            chunk["rerank_score"] = r.rerank_score
+            chunk["original_rank"] = r.original_rank
+            results.append(chunk)
     
     print("\n" + "=" * 70)
-    print(f"TOP {len(results)} RESULTS")
+    print(f"TOP {len(results)} RESULTS" + (" (reranked)" if not args.no_rerank else ""))
     print("=" * 70)
     
     for i, result in enumerate(results, 1):
