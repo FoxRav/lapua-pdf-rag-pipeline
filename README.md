@@ -1,6 +1,30 @@
-# Lapua Tilinpäätös RAG
+# 🏛️ Lapua PDF RAG Pipeline
 
-**Kysy kysymyksiä Lapuan kaupungin tilinpäätöksestä ja saat vastauksia tekoälyn avulla!**
+### Kuntatalouden dokumentit → strukturoitu data → älykäs Q&A
+
+> **Yksi komento. Satoja sivuja. Sekunneissa vastaus.**  
+> Muuta mikä tahansa kuntatalouden PDF (tilinpäätös, talousarvio, toimintakertomus) älykkääksi tietopankiksi, jolta voit kysyä mitä vain suomeksi.
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
+[![GPU Accelerated](https://img.shields.io/badge/GPU-CUDA%2012.4-brightgreen.svg)](#gpu-tuki)
+
+---
+
+## 💡 Miksi tämä?
+
+| Ongelma | Ratkaisu |
+|---------|----------|
+| 📄 154-sivuinen PDF | ⚡ Vastaus 3 sekunnissa |
+| 🔍 Etsi Ctrl+F | 🧠 Kysy luonnollisella kielellä |
+| 📊 Taulukot kuvina | 📈 Strukturoitu, laskettava data |
+| 🤷 "Missä tämä luku on?" | 📍 Sivunumero + tarkka lähde |
+
+**Esimerkki:**
+```
+Kysymys: "Paljonko oli poistoja vuonna 2024?"
+Vastaus: "Poistot olivat 6 832 049 euroa. (sivu 140, tuloslaskelma)"
+```
 
 ---
 
