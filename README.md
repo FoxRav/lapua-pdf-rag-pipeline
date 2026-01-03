@@ -48,7 +48,7 @@ python -m src.pipeline.batch_ingest manifest.csv
 - 🔍 Hakea semanttisesti ("Mikä oli vuosikate?")
 - 📊 Ajaa analytiikkaa (taulukot CSV:nä)
 - 🤖 Generoida vastauksia LLM:llä (RAG)
-- ✅ Validoida parserin laatu (50+ smoke-testiä)
+- ✅ Validoida parserin laatu (90 kysymyksen testipatteristo)
 
 ---
 
@@ -243,7 +243,7 @@ LÄHTEET:
 
 ---
 
-## Nykytilanne (2025-01-03)
+## Nykytilanne (2026-01-03)
 
 ### 🏗️ Arkkitehtuuri v2.0
 
@@ -315,6 +315,38 @@ CI Gate A (functionality): ✅ PASS
 CI Gate B (quality):       ✅ PASS
 CI Gate C (OCR):           ✅ PASS
 CI Gate D (critical):      ✅ PASS
+```
+
+### 90 Kysymyksen Evaluointi (professoritaso)
+
+Kattava testipatteristo joka testaa koko tilinpäätöksen:
+
+```
+📊 YHTEENVETO:
+  Kysymyksiä:              90 (20 MUST, 70 SHOULD)
+  Keskimääräinen score:    0.736
+  Hakuaika:                44ms/kysymys
+  Lukuja löytyi:           82/90 (91%)
+  Minimi score:            0.59
+
+📈 TOP 5 Kategoriat:
+  1. Rahoituslaskelma       0.772
+  2. Standardimittarit      0.765
+  3. Tuloslaskelma          0.760
+  4. QA-validointi          0.757
+  5. Tasapainotestit        0.749
+```
+
+**Aja evaluointi:**
+```bash
+# Kaikki 90 kysymystä
+python -m eval.run_questions_batch
+
+# Vain pakolliset (20 kpl)
+python -m eval.run_questions_batch --must-only
+
+# Tietty kategoria
+python -m eval.run_questions_batch --category 1_tuloslaskelma
 ```
 
 ---
@@ -721,9 +753,11 @@ lapua-pdf-rag-pipeline/
 │       ├── reranker.py              # ⭐ Cross-encoder reranker
 │       └── answer_with_evidence.py  # ⭐ LLM + evidenssi
 ├── eval/
+│   ├── questions_full_90.json       # ⭐ 90 kysymyksen testipatteristo
+│   ├── run_questions_batch.py       # ⭐ Batch-evaluointi
 │   ├── smoke_2024_full.json         # 50 smoke-testiä
 │   ├── run_smoke_eval_v2.py         # Smoke test runner
-│   └── smoke_run_v2_*.json          # Testiraportit
+│   └── questions_run_*.json         # Evaluointiraportit
 ├── tests/                           # Pytest-testit
 ├── configs/                         # YAML-konfiguraatiot
 └── README.md                        # Tämä tiedosto
