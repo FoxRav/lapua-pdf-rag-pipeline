@@ -72,6 +72,8 @@ Vastaus: "Poistot olivat 6 832 049 euroa. (sivu 140, tuloslaskelma)"
 
 ## 🚀 PIKAOHJE: Näin käytät
 
+> 📄 **Katso myös:** [QUICKSTART.md](QUICKSTART.md) - Yksisivuinen ohje kun avaat projektin uudelleen
+
 ### 1. Aktivoi ympäristö (aina ensin!)
 
 ```powershell
