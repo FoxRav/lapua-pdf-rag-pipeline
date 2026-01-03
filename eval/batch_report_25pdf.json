@@ -1,0 +1,223 @@
+{
+  "timestamp": "2026-01-03T00:30:32.143283",
+  "documents": [
+    {
+      "doc_id": "lapuan_kaupungin_hallintosaanto_1_8_2025_alkaen_kv",
+      "chunks": 76,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 180773,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupungin_hankintaohje_2024",
+      "chunks": 18,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 52818,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupungin_konserniohje_kv_9_12_2024_89_1_1",
+      "chunks": 0,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 0,
+      "status": "EMPTY"
+    },
+    {
+      "doc_id": "lapuan_kaupungin_laaja_hyvinvointikertomus_2021_20",
+      "chunks": 75,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 103025,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_arviointikertomus_2024_1",
+      "chunks": 55,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 109953,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_asiakirjajulkisuuskuvaus",
+      "chunks": 2,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 4002,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_asiakirjoista_perittavat_maksut_20",
+      "chunks": 3,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 3139,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_avustusehdot_ja_rajoitukset",
+      "chunks": 3,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 5324,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_avustusperiaatteet_yhteisoille_202",
+      "chunks": 7,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 8674,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_harjoitus_ja_kilpailuvuorojen_jako",
+      "chunks": 3,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 5646,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_lapuan_kaupungin_elinkeino_ohjelma",
+      "chunks": 13,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 14940,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_lapuan_malli_julkaisu",
+      "chunks": 35,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 45498,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_luottamushenkiloiden_seka_viran_ja",
+      "chunks": 17,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 23237,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_nuorisovaltuuston_toimintasaanto_2",
+      "chunks": 11,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 19690,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_ohjeistus_avustuksen_kytn_selvittm",
+      "chunks": 1,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 2556,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_omistajapoliittiset_linjaukset_1_1",
+      "chunks": 15,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 28322,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_palkkiosaanto_elokuu_2021",
+      "chunks": 17,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 17651,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_saavutettavuusseloste_2021",
+      "chunks": 1,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 1421,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_ssisaisen_valvonnan_ja_riskienhall",
+      "chunks": 20,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 51575,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_strategia_2023",
+      "chunks": 1,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 1195,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_tasekirja_2023",
+      "chunks": 152,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 279094,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_teknisen_toimialan_avustusperiaatt",
+      "chunks": 6,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 6326,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_tilintarkastuskertomus_2024_1",
+      "chunks": 2,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 4628,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_vammaisneuvoston_toimintasaanto_20",
+      "chunks": 5,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 3880,
+      "status": "OK"
+    },
+    {
+      "doc_id": "lapuan_kaupunki_vanhusneuvoston_toimintasaanto1_20",
+      "chunks": 7,
+      "pages": 0,
+      "elements": 0,
+      "text_chars": 4553,
+      "status": "OK"
+    }
+  ],
+  "table_chunks": {
+    "count": 1228,
+    "tables": 122
+  },
+  "complete_index": {
+    "exists": true,
+    "chunks": 1773,
+    "version": null
+  },
+  "summary": {
+    "total_docs": 25,
+    "total_text_chunks": 545,
+    "total_table_chunks": 1228,
+    "total_index_chunks": 1773,
+    "ok_docs": 24,
+    "empty_docs": 1,
+    "index_synced": true
+  }
+}
