@@ -1,0 +1,1130 @@
+{
+  "metadata": {
+    "timestamp": "2026-01-03T15:22:41.067229",
+    "total_questions": 20,
+    "must_questions": 20,
+    "should_questions": 0,
+    "total_time_seconds": 1.18
+  },
+  "summary": {
+    "avg_search_time_ms": 58.94,
+    "avg_retrieval_score": 0.758,
+    "questions_with_numbers": 17,
+    "questions_without_numbers": 3
+  },
+  "by_category": {
+    "0_kartoitus": {
+      "count": 1,
+      "avg_score": 0.7322,
+      "avg_time_ms": 391.64
+    },
+    "1_tuloslaskelma": {
+      "count": 4,
+      "avg_score": 0.7756,
+      "avg_time_ms": 40.46
+    },
+    "2_tase": {
+      "count": 3,
+      "avg_score": 0.728,
+      "avg_time_ms": 39.58
+    },
+    "3_rahoitus": {
+      "count": 2,
+      "avg_score": 0.7645,
+      "avg_time_ms": 38.97
+    },
+    "6_verotulot": {
+      "count": 2,
+      "avg_score": 0.7743,
+      "avg_time_ms": 46.69
+    },
+    "10_henkilosto": {
+      "count": 2,
+      "avg_score": 0.754,
+      "avg_time_ms": 41.22
+    },
+    "12_tarkastus": {
+      "count": 1,
+      "avg_score": 0.7318,
+      "avg_time_ms": 39.99
+    },
+    "14_mittarit": {
+      "count": 1,
+      "avg_score": 0.7439,
+      "avg_time_ms": 47.74
+    },
+    "16_tasapaino": {
+      "count": 1,
+      "avg_score": 0.8086,
+      "avg_time_ms": 39.26
+    },
+    "19_qa": {
+      "count": 3,
+      "avg_score": 0.7573,
+      "avg_time_ms": 41.95
+    }
+  },
+  "top_5_retrievals": [
+    {
+      "id": "Q068",
+      "score": 0.8086,
+      "question": "Mikä on kertynyt ylijäämä/alijäämä taseessa 2024?"
+    },
+    {
+      "id": "Q004",
+      "score": 0.8081,
+      "question": "Mikä on toimintakate 2024 ja muutos edellisvuoteen"
+    },
+    {
+      "id": "Q006",
+      "score": 0.7916,
+      "question": "Mikä on vuosikate 2024 euroina?"
+    },
+    {
+      "id": "Q015",
+      "score": 0.7842,
+      "question": "Mikä on investointien rahavirta 2024?"
+    },
+    {
+      "id": "Q024",
+      "score": 0.7771,
+      "question": "Paljonko oli verotulot yhteensä 2024?"
+    }
+  ],
+  "bottom_5_retrievals": [
+    {
+      "id": "Q089",
+      "score": 0.7328,
+      "question": "Negatiivisten merkkien tarkistus: esitetäänkö sulk"
+    },
+    {
+      "id": "Q001",
+      "score": 0.7322,
+      "question": "Listaa tilinpäätösasiakirjan pääosiot sisällysluet"
+    },
+    {
+      "id": "Q043",
+      "score": 0.7318,
+      "question": "Onko tilintarkastuksessa huomautuksia?"
+    },
+    {
+      "id": "Q037",
+      "score": 0.7311,
+      "question": "Mikä on henkilöstömäärä (htv tai kokonaismäärä) vu"
+    },
+    {
+      "id": "Q011",
+      "score": 0.6786,
+      "question": "Mikä on lainakanta 2024 ja muutos edellisvuoteen?"
+    }
+  ],
+  "results": [
+    {
+      "question_id": "Q001",
+      "question": "Listaa tilinpäätösasiakirjan pääosiot sisällysluettelon mukaan.",
+      "category": "0_kartoitus",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 56,
+          "score": 0.7322,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 39,
+          "score": 0.7191,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 108,
+          "score": 0.6363,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 144,
+          "score": 0.5839,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 56,
+          "score": 0.551,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Strateginen ta- voite | Talousarviotavoite | Toimenpide/mittari | Toteutuma | Toteutuma | Toteutuma | Toteutuma\nRivi 2: Käyttoönotto toteutettu suunni- telman mukaan. Monitoimilaitteet kilpailutettu. Lait- teet toimitettu vuoden 2024 ai- kana. | Hyvinvoinnin",
+      "top_chunk_page": 56,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 391.64,
+      "retrieval_score": 0.7322,
+      "has_numbers": true,
+      "numbers_found": [
+        "2",
+        "2024"
+      ]
+    },
+    {
+      "question_id": "Q004",
+      "question": "Mikä on toimintakate 2024 ja muutos edellisvuoteen euroina?",
+      "category": "1_tuloslaskelma",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 132,
+          "score": 0.8081,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 132,
+          "score": 0.805,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 132,
+          "score": 0.7932,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 132,
+          "score": 0.7877,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 14,
+          "score": 0.7534,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Toimintakate /ulkoiset ja sisäiset | Toimintakate /ulkoiset ja sisäiset\nRivi 1: Talousarvio 2024 | Talousarvio muutos | Muutettu talousarvio | Toteutuma | Poikkeama +yli/-alle",
+      "top_chunk_page": 132,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 44.8,
+      "retrieval_score": 0.8081,
+      "has_numbers": true,
+      "numbers_found": [
+        "2024",
+        "1"
+      ]
+    },
+    {
+      "question_id": "Q006",
+      "question": "Mikä on vuosikate 2024 euroina?",
+      "category": "1_tuloslaskelma",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 26,
+          "score": 0.7916,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 28,
+          "score": 0.7443,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 7,
+          "score": 0.732,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 32,
+          "score": 0.7217,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 32,
+          "score": 0.7183,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "kuitenkaan automaattisesti ole käytettävissä ilman siksi, että velkaantuneen kunnan on vaikea selviy-\nlikvidin omaisuuden (esim. sijoitukset) myyntiä. tyä käyttötalouden menoista.\nKaupungin nettoinvestoinnit olivat 6,9 miljoonaa Kuten tasekirjassa todetaan, kaupungin nettoinves-\neuroa. Kaupungin lainakanta kasvoi edellisvuodesta tointien ollessa jo pitkään tulorahoitusta suurem-\nollen vuoden 2024 lopussa 64,3 miljoonaa euroa. mat, kaupunki on velkaantunut. Koko konsernin lai-\nAsukasta kohti lask",
+      "top_chunk_page": 26,
+      "top_chunk_doc": "lapuan_kaupunki_arviointikertomus_2024_1",
+      "search_time_ms": 42.09,
+      "retrieval_score": 0.7916,
+      "has_numbers": true,
+      "numbers_found": [
+        "64",
+        "2024",
+        "3",
+        "6",
+        "9",
+        "64,3",
+        "6,9"
+      ]
+    },
+    {
+      "question_id": "Q007",
+      "question": "Riittääkö vuosikate poistoihin? Laske vuosikate/poistot.",
+      "category": "1_tuloslaskelma",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 43,
+          "score": 0.7678,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 136,
+          "score": 0.7617,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 32,
+          "score": 0.7518,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 32,
+          "score": 0.7517,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 32,
+          "score": 0.7517,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "Rivi 12: Vuosikate | Vuosikate | Vuosikate | -102 | 0 -828 | Poistot ja arvonalentumiset | 9788 | 9788 | 9788 | 9788 | 9788 | 14195 | 14195 | 14195 | Suunnitelman mukaiset poistot",
+      "top_chunk_page": 43,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 35.93,
+      "retrieval_score": 0.7678,
+      "has_numbers": true,
+      "numbers_found": [
+        "-102",
+        "-828",
+        "9788",
+        "14195",
+        "0",
+        "12"
+      ]
+    },
+    {
+      "question_id": "Q008",
+      "question": "Mikä on tilikauden tulos 2024 euroina?",
+      "category": "1_tuloslaskelma",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 128,
+          "score": 0.7349,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 133,
+          "score": 0.6948,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 37,
+          "score": 0.6888,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 28,
+          "score": 0.6755,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 6,
+          "score": 0.6625,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Alkuperäinen | Alkuperäinen | Alkuperäinen\nRivi 43: 102,5% | Tilikauden tulos | Tilikauden tulos | -1 896 630 | -1 896 630",
+      "top_chunk_page": 128,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 39.01,
+      "retrieval_score": 0.7349,
+      "has_numbers": true,
+      "numbers_found": [
+        "102",
+        "5",
+        "-1 896",
+        "102,5",
+        "-1",
+        "43",
+        "630",
+        "-1 896 630",
+        "896"
+      ]
+    },
+    {
+      "question_id": "Q009",
+      "question": "Mikä on taseen loppusumma 2024?",
+      "category": "2_tase",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 32,
+          "score": 0.7632,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 44,
+          "score": 0.5818,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 34,
+          "score": 0.5627,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 7,
+          "score": 0.5609,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 21,
+          "score": 0.5532,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "Lapuan kaupunki Tilinpäätös 2023 31\nTaseesta laskettavat tunnusluvut kuvaavat kunnan omavaraisuutta, rahoitusvarallisuutta ja\nvelkaisuutta. Kaupungin taseen loppusumma oli tilinpäätöshetkellä 132,31 milj. euroa, mikä\non 9,97 milj. euroa vähemmän kuin vertailuvuonna. Vertailukelpoisuuteen vaikuttaa keskei-\nsesti sote-uudistus, jonka seurauksena kunnista hyvinvointialueelle siirtyvät omaisuus- ja\npääomaerät kirjattiin alkusaldojen muutoksina tilinavaukseen päiväykselle 1.1.2023. Perus-\npääomaa vas",
+      "top_chunk_page": 32,
+      "top_chunk_doc": "lapuan_kaupunki_tasekirja_2023",
+      "search_time_ms": 37.23,
+      "retrieval_score": 0.7632,
+      "has_numbers": true,
+      "numbers_found": [
+        "31",
+        "2023",
+        "9,97",
+        "97",
+        "132,31",
+        "1",
+        "2023 31",
+        "1.1",
+        "9",
+        "132"
+      ]
+    },
+    {
+      "question_id": "Q010",
+      "question": "Mikä on oma pääoma/kertynyt ylijäämä 2024?",
+      "category": "2_tase",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 7,
+          "score": 0.7423,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 7,
+          "score": 0.7258,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 32,
+          "score": 0.7206,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 20,
+          "score": 0.6775,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 46,
+          "score": 0.6744,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "KUNTATALOUS\n\n\nLapuan kaupungin tilikaudet ovat olleet vuosina 2021-2024 ylijäämäisiä.\nKyseiset vuodet ovat kuitenkin olleet kukin omalla tavallaan poikkeuksellisia.\n\nKoronapandemia vuosina 2021-2022 aiheutti kunnille huomattavia lisäkustannuksia; valtion\nkompensaatio tukipaketein piti kuitenkin kuntatalouden vahvana kyseisinä vuosina. Vuonna 2021\ntilikauden ylijäämä olikin lähes 1,5 miljoonaa euroa ja vuosikate vahva, kattaen poistot hyvin (123\n%). Vuonna 2022 kehitys jatkui samansuuntaisena, va",
+      "top_chunk_page": 7,
+      "top_chunk_doc": "lapuan_kaupungin_laaja_hyvinvointikertomus_2021_20",
+      "search_time_ms": 37.35,
+      "retrieval_score": 0.7423,
+      "has_numbers": true,
+      "numbers_found": [
+        "5",
+        "-2022",
+        "2022",
+        "2021",
+        "123",
+        "1,5",
+        "-2024",
+        "1"
+      ]
+    },
+    {
+      "question_id": "Q011",
+      "question": "Mikä on lainakanta 2024 ja muutos edellisvuoteen?",
+      "category": "2_tase",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 34,
+          "score": 0.6786,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 33,
+          "score": 0.6692,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 23,
+          "score": 0.6683,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 34,
+          "score": 0.6629,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 7,
+          "score": 0.6401,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: TASE\nRivi 10: 1907 | 1907 | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 1000€ | Lainakanta 31.12. 100",
+      "top_chunk_page": 34,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 44.16,
+      "retrieval_score": 0.6786,
+      "has_numbers": true,
+      "numbers_found": [
+        "31",
+        "1000",
+        "1907",
+        "100",
+        "10",
+        "12",
+        "31.12"
+      ]
+    },
+    {
+      "question_id": "Q014",
+      "question": "Mikä on toiminnan nettorahavirta 2024?",
+      "category": "3_rahoitus",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 6,
+          "score": 0.7448,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 20,
+          "score": 0.7127,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 23,
+          "score": 0.7108,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 13,
+          "score": 0.6947,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 22,
+          "score": 0.6847,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Talouden tasapainon ylläpitäminen Talouden tasapainon tukemiseksi strategiaan kirja-\ntut toimenpiteet, kuten palveluverkoston ja palve-\nTalouden on oltava tasapainossa, jotta kaupunki voi\nlutason arviointi, prosessien kehittäminen, hankin-\npitemmällä aikavälillä tuottaa tehtävänään olevat\ntatoimen tehostaminen ja poikkihallinnollinen yh-\npalvelut.\nteistyö, ovat näkyneet käytännön toiminnassa. Ti-\nTalouden tasapainon ylläpitäminen näkyy Lapuan linpäätöksessä kuvataan, kuinka näiden toimenpi-\nkaup",
+      "top_chunk_page": 6,
+      "top_chunk_doc": "lapuan_kaupunki_arviointikertomus_2024_1",
+      "search_time_ms": 35.72,
+      "retrieval_score": 0.7448,
+      "has_numbers": false,
+      "numbers_found": []
+    },
+    {
+      "question_id": "Q015",
+      "question": "Mikä on investointien rahavirta 2024?",
+      "category": "3_rahoitus",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 137,
+          "score": 0.7842,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 134,
+          "score": 0.7267,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 45,
+          "score": 0.7245,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 45,
+          "score": 0.7128,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 23,
+          "score": 0.7079,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Konsernin rahoituslaskelma | TP 2024 | TP 2023 | Toiminnan rahavirta\nRivi 12: Toiminnan ja investointien rahavirta | Toiminnan ja investointien rahavirta | Toiminnan ja investointien rahavirta | Toiminnan ja investointien rahavirta | Toiminnan ja investointien rahavirta",
+      "top_chunk_page": 137,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 42.22,
+      "retrieval_score": 0.7842,
+      "has_numbers": true,
+      "numbers_found": [
+        "2023",
+        "2024",
+        "12"
+      ]
+    },
+    {
+      "question_id": "Q024",
+      "question": "Paljonko oli verotulot yhteensä 2024?",
+      "category": "6_verotulot",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 27,
+          "score": 0.7771,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 15,
+          "score": 0.6964,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 26,
+          "score": 0.685,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 13,
+          "score": 0.6332,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 44,
+          "score": 0.6287,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Lapuan kaupunki Tilinpäätös 2023 26\nvEROTULOT 20t9-2023\n50000\n50000\n40000\n30000\n20000\n10000\n0\n20t9 2020 202L 2022 2023\nr Kunnallisvero r Yhteisovero g Kiinteistövero\nValtionosuuksia tilitettiin vuoden 2023 aikana yhteensä 15,9 milj. euroa. Valtionosuudet oli-\nvat vuoteen 2022 verrattuna 27,8 milj. euroa pienemmät sote-muutoksen vuoksi. Vuoden\n2023 valtionosuus ei ole vertailukelpoinen vuoden 2022 valtionosuuden kanssa.\nValtionosuudet Vuosi 2023 Vuosi 2022\nKunnan peruspalvelujen valtionosuus, ml.",
+      "top_chunk_page": 27,
+      "top_chunk_doc": "lapuan_kaupunki_tasekirja_2023",
+      "search_time_ms": 43.69,
+      "retrieval_score": 0.7771,
+      "has_numbers": true,
+      "numbers_found": [
+        "9 2020 202",
+        "50000",
+        "30000",
+        "9 2020",
+        "10000",
+        "40000\n30000\n20000",
+        "2023 26",
+        "20000",
+        "27",
+        "-2023\n50000"
+      ]
+    },
+    {
+      "question_id": "Q025",
+      "question": "Paljonko oli valtionosuudet 2024?",
+      "category": "6_verotulot",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 129,
+          "score": 0.7716,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 15,
+          "score": 0.7473,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 129,
+          "score": 0.7422,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 141,
+          "score": 0.7292,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 30,
+          "score": 0.7255,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Valtionosuudet | Valtionosuudet\nRivi 3: Toteutuma 2024 | Poikkeama + yli / - ali | Kunnan peruspalvelujen valtionosuus, ml. Tasaukset Opetus- ja kulttuuritoimen muut valtionosuudet Verotulomenetysten korvaus Yhteensä",
+      "top_chunk_page": 129,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 49.68,
+      "retrieval_score": 0.7716,
+      "has_numbers": true,
+      "numbers_found": [
+        "2024",
+        "3"
+      ]
+    },
+    {
+      "question_id": "Q037",
+      "question": "Mikä on henkilöstömäärä (htv tai kokonaismäärä) vuoden 2024 lopussa?",
+      "category": "10_henkilosto",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 6,
+          "score": 0.7311,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 20,
+          "score": 0.7198,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 23,
+          "score": 0.6746,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 6,
+          "score": 0.6606,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 26,
+          "score": 0.6537,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Talouden tasapainon ylläpitäminen Talouden tasapainon tukemiseksi strategiaan kirja-\ntut toimenpiteet, kuten palveluverkoston ja palve-\nTalouden on oltava tasapainossa, jotta kaupunki voi\nlutason arviointi, prosessien kehittäminen, hankin-\npitemmällä aikavälillä tuottaa tehtävänään olevat\ntatoimen tehostaminen ja poikkihallinnollinen yh-\npalvelut.\nteistyö, ovat näkyneet käytännön toiminnassa. Ti-\nTalouden tasapainon ylläpitäminen näkyy Lapuan linpäätöksessä kuvataan, kuinka näiden toimenpi-\nkaup",
+      "top_chunk_page": 6,
+      "top_chunk_doc": "lapuan_kaupunki_arviointikertomus_2024_1",
+      "search_time_ms": 42.19,
+      "retrieval_score": 0.7311,
+      "has_numbers": false,
+      "numbers_found": []
+    },
+    {
+      "question_id": "Q038",
+      "question": "Mikä on vakinaisen henkilöstön määrä 2024?",
+      "category": "10_henkilosto",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 55,
+          "score": 0.7768,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 13,
+          "score": 0.6845,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 15,
+          "score": 0.6285,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 22,
+          "score": 0.6164,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 22,
+          "score": 0.6164,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Lapuan kaupunki Tilinpäätös 2023 54\nTunnusluvut\nTP 2020 TP 2021 TP 2022 TP 2023\nVakinaisen henkilöstön määrä 786 805 811 485\nKehityskeskustelun käynti% 76 48 53 81\nHall intokeskus / tietohall intopalvel ut\nPalvelukuvaus\nTietohallintopalvelut vastaa kaupungin fyysisestä ICT-ympäristöstä. Palvelu sisältää ul-\nkoiset ja sisäiset tiedonsiirtoyhteydet ja sisäverkon hallinnan. Lisäksi vastuualueeseen\nkuuluu palvelinympäristö, fyysiset ICT-laitteet, tietoturvan järjestäminen, palvelinten\nvarmuuskopioin",
+      "top_chunk_page": 55,
+      "top_chunk_doc": "lapuan_kaupunki_tasekirja_2023",
+      "search_time_ms": 40.24,
+      "retrieval_score": 0.7768,
+      "has_numbers": true,
+      "numbers_found": [
+        "54",
+        "786 805",
+        "805",
+        "53 81",
+        "786",
+        "76 48 53",
+        "2021",
+        "48",
+        "811",
+        "76 48"
+      ]
+    },
+    {
+      "question_id": "Q043",
+      "question": "Onko tilintarkastuksessa huomautuksia?",
+      "category": "12_tarkastus",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 99,
+          "score": 0.7318,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 99,
+          "score": 0.6544,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 2,
+          "score": 0.626,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 10,
+          "score": 0.589,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 10,
+          "score": 0.588,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Strateginen tavoite | Talousarviotavoite | Toimenpide | Toteuma\nRivi 2: Tyo- ja toimintakyky paranee Yhteisollisyyden kas- vattaminen | Kävelyn- ja pyöräilyn kehittä- misohjelman toimenpiteet Onko toimenpiteet toteutettu? (K/E) | Toteutunut. Valokuvasuunnis- tus pyöräillen suunnitelmissa. Avustuksissa yksit- täinen toiminta huomioitu",
+      "top_chunk_page": 99,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 39.99,
+      "retrieval_score": 0.7318,
+      "has_numbers": true,
+      "numbers_found": [
+        "2"
+      ]
+    },
+    {
+      "question_id": "Q052",
+      "question": "Laske vuosikate/poistot-suhde ja luokittele talouden tila.",
+      "category": "14_mittarit",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 56,
+          "score": 0.7439,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 29,
+          "score": 0.7209,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 57,
+          "score": 0.7045,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 56,
+          "score": 0.6859,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_ssisaisen_valv",
+          "page": 8,
+          "score": 0.6595,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: Strateginen ta- voite | Talousarviotavoite | Toimenpide/mittari | Toteutuma | Toteutuma | Toteutuma | Toteutuma\nRivi 1: Talouden tasapai- non yllapitäminen, Hyvinvoinnin lisääminen | Talouden tasapai- non yllapitäminen, Hyvinvoinnin lisääminen | Talouden tasapai- non yllapitäminen, Hyvinvoinnin lisääminen | Tietoturvallisuuden lisäämi- nen estämällä sähköpostitunnusten väärin- kaytto Monitoimilaitteiden kustan- nustehokkuuden, tietoturvan ja käyttäjäystävällisyyden parantaminen | MFA:t ",
+      "top_chunk_page": 56,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 47.74,
+      "retrieval_score": 0.7439,
+      "has_numbers": true,
+      "numbers_found": [
+        "1"
+      ]
+    },
+    {
+      "question_id": "Q068",
+      "question": "Mikä on kertynyt ylijäämä/alijäämä taseessa 2024?",
+      "category": "16_tasapaino",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 34,
+          "score": 0.8086,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 46,
+          "score": 0.7459,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_arviointikerto",
+          "page": 25,
+          "score": 0.7351,
+          "type": "text"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 34,
+          "score": 0.7154,
+          "type": "table"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 32,
+          "score": 0.6755,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Otsikot: VASTAAVAA | VASTAAVAA | VASTAAVAA | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TASE | TP 2024 | TP 2024 | TP 2024 | TP 2024 | TP 2024 | TP 2024 | TP 2024 | TP 2024 | TP 2024\nRivi 37: Kertynyt yli-/alijama,1000€ Kertynyt yli-/alijaama, euroa/asukas | Kertynyt yli-/alijama,1000€ Kertynyt yli-/alijaama, euroa/asukas | Kertynyt yli-/alijama,1000€ Kertynyt yli-/alijaama, euroa/asukas | Kertynyt yli-/alijama,1000€ Kertynyt yli-/alijaama, euroa/asukas | Kertyn",
+      "top_chunk_page": 34,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 39.26,
+      "retrieval_score": 0.8086,
+      "has_numbers": true,
+      "numbers_found": [
+        "37",
+        "2024",
+        "1000"
+      ]
+    },
+    {
+      "question_id": "Q088",
+      "question": "Yksikkötarkistus: ovatko taulukot € vai 1000€?",
+      "category": "19_qa",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_luottamushenki",
+          "page": 8,
+          "score": 0.7734,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_palkkiosaanto_",
+          "page": 5,
+          "score": 0.7538,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 8,
+          "score": 0.7048,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 13,
+          "score": 0.6827,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupungin_laaja_hyvinvo",
+          "page": 8,
+          "score": 0.6632,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": " |  | € | \n |  | 1.6.2025 alkaen | \n |  |  | \nKaupunginvaltuusto | 68 € |  | \nKaupunginhallitus ja sen asettamat toimielimet\n(puheenjohtajisto, henkilöstöjaosto sekä erikseen\nperustettavat toimielimet) | 68 € |  | \nLautakunnat ja lautakuntien jaostot | 48 € |  | \nMuut kaupungin toimielimet (kuten esim.\nhaastatteluryhmät) | 29 € |  | \nVaikuttamistoimielimet vammaisneuvosto,\nvanhusneuvosto ja nuorisovaltuusto | 29 € |  | \nYhtiökokousedustaja | 44 € |  | ",
+      "top_chunk_page": 8,
+      "top_chunk_doc": "lapuan_kaupunki_luottamushenkiloiden_seka_viran_ja",
+      "search_time_ms": 41.14,
+      "retrieval_score": 0.7734,
+      "has_numbers": true,
+      "numbers_found": [
+        "2025",
+        "68",
+        "29",
+        "6",
+        "44",
+        "48",
+        "1.6",
+        "1"
+      ]
+    },
+    {
+      "question_id": "Q089",
+      "question": "Negatiivisten merkkien tarkistus: esitetäänkö sulkeissa vai miinusmerkillä?",
+      "category": "19_qa",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapuan_kaupunki_lapuan_malli_j",
+          "page": 12,
+          "score": 0.7328,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_lapuan_malli_j",
+          "page": 14,
+          "score": 0.5955,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_lapuan_malli_j",
+          "page": 2,
+          "score": 0.5034,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_lapuan_malli_j",
+          "page": 19,
+          "score": 0.5025,
+          "type": "text"
+        },
+        {
+          "doc": "lapuan_kaupunki_tasekirja_2023",
+          "page": 69,
+          "score": 0.4619,
+          "type": "text"
+        }
+      ],
+      "top_chunk_text": "Käyttötapoja\nOsaamismerkin ja osallistumismerkin käytöllä voi olla erilaisia tavoitteita ja tarkoituksia:\n• Kertoo osallistumisesta tapahtumaan tai aktiivisuudesta.\n• Ohjaa opiskelussa eteenpäin, motivoi, pelillisyys mahdollista.\n• Kertoo, mitä pitäisi osata.\n• Testaa osaamista ja pätevöittää.\n• Osoittaa osaamisen laajuuden, tason ja laadun.\nResurssit\nMerkkijärjestelmän rakentaminen kannattaa tehdä huolellisesti ja kauaskantoisesti. Oman pilot-\ntimme merkit pyrimme rakentamaan niin, että ne muod",
+      "top_chunk_page": 12,
+      "top_chunk_doc": "lapuan_kaupunki_lapuan_malli_julkaisu",
+      "search_time_ms": 44.7,
+      "retrieval_score": 0.7328,
+      "has_numbers": false,
+      "numbers_found": []
+    },
+    {
+      "question_id": "Q090",
+      "question": "Taulukoiden summatarkistus: täsmäävätkö rivi- ja sarakesummat?",
+      "category": "19_qa",
+      "priority": "must",
+      "retrieved_chunks": [
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 142,
+          "score": 0.7656,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 142,
+          "score": 0.7654,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 142,
+          "score": 0.7614,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 142,
+          "score": 0.7586,
+          "type": "table"
+        },
+        {
+          "doc": "lapua_tilinpaatos_2024",
+          "page": 142,
+          "score": 0.7584,
+          "type": "table"
+        }
+      ],
+      "top_chunk_text": "Otsikot: OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | OSAKKEET JA OSUUDET | MUUT SAAMISET | Yhteensä | Osakkeet tytayhteisöt | Kuntayhtymä osuudet | )sakkeet, osak Muut osakkeet kuus- ja muut om. Yhteensä | ja osuudet | Tytär- yhteisot | Kuntayhty- mät | Osakkuus yhteisöt\nRivi 4: ",
+      "top_chunk_page": 142,
+      "top_chunk_doc": "lapua_tilinpaatos_2024",
+      "search_time_ms": 40.01,
+      "retrieval_score": 0.7656,
+      "has_numbers": true,
+      "numbers_found": [
+        "4"
+      ]
+    }
+  ]
+}

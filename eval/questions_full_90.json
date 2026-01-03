@@ -1,0 +1,668 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2026-01-03",
+    "description": "Laaja kysymyspatteri RAG-evaliin (90 kysymystä)",
+    "source": "lapua_2025_tilinpaatos_kysymyspatteristo_yhdistetty_q_001_q_090.md"
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "category": "0_kartoitus",
+      "question": "Listaa tilinpäätösasiakirjan pääosiot sisällysluettelon mukaan.",
+      "expects": {"type": "toc", "page_range": [1, 5]},
+      "priority": "must"
+    },
+    {
+      "id": "Q002",
+      "category": "0_kartoitus",
+      "question": "Nimeä 5 tärkeintä taulukkoa päätöksenteon kannalta.",
+      "expects": {"type": "analysis", "keywords": ["tuloslaskelma", "tase", "rahoituslaskelma"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q003",
+      "category": "0_kartoitus",
+      "question": "Mitkä tilinpäätösperiaatteet tai muutokset on kirjattu vuodelle 2024?",
+      "expects": {"type": "text", "keywords": ["periaate", "muutos", "arvostus"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q004",
+      "category": "1_tuloslaskelma",
+      "question": "Mikä on toimintakate 2024 ja muutos edellisvuoteen euroina?",
+      "expects": {"type": "number", "expected_value": -36400000, "tolerance": 1000000, "page_range": [10, 20]},
+      "priority": "must"
+    },
+    {
+      "id": "Q005",
+      "category": "1_tuloslaskelma",
+      "question": "Mitkä 3 erää selittävät suurimman osan toimintakatteen muutoksesta?",
+      "expects": {"type": "analysis", "keywords": ["henkilöstö", "palvelu", "toiminta"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q006",
+      "category": "1_tuloslaskelma",
+      "question": "Mikä on vuosikate 2024 euroina?",
+      "expects": {"type": "number", "expected_value": 7500000, "tolerance": 500000, "page_range": [10, 20]},
+      "priority": "must"
+    },
+    {
+      "id": "Q007",
+      "category": "1_tuloslaskelma",
+      "question": "Riittääkö vuosikate poistoihin? Laske vuosikate/poistot.",
+      "expects": {"type": "calculation", "formula": "vuosikate / poistot", "expected_ratio": 1.09},
+      "priority": "must"
+    },
+    {
+      "id": "Q008",
+      "category": "1_tuloslaskelma",
+      "question": "Mikä on tilikauden tulos 2024 euroina?",
+      "expects": {"type": "number", "expected_value": 600000, "tolerance": 100000, "page_range": [130, 145]},
+      "priority": "must"
+    },
+    {
+      "id": "Q009",
+      "category": "2_tase",
+      "question": "Mikä on taseen loppusumma 2024?",
+      "expects": {"type": "number", "page_range": [130, 145], "keywords": ["tase", "yhteensä"]},
+      "priority": "must"
+    },
+    {
+      "id": "Q010",
+      "category": "2_tase",
+      "question": "Mikä on oma pääoma/kertynyt ylijäämä 2024?",
+      "expects": {"type": "number", "expected_value": 27400000, "tolerance": 1000000},
+      "priority": "must"
+    },
+    {
+      "id": "Q011",
+      "category": "2_tase",
+      "question": "Mikä on lainakanta 2024 ja muutos edellisvuoteen?",
+      "expects": {"type": "number", "expected_value": 64300000, "tolerance": 1000000, "page_range": [10, 20]},
+      "priority": "must"
+    },
+    {
+      "id": "Q012",
+      "category": "2_tase",
+      "question": "Mikä on kassavarojen määrä 2024?",
+      "expects": {"type": "number", "keywords": ["kassa", "rahavarat"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q013",
+      "category": "2_tase",
+      "question": "Onko taseessa merkittäviä arvonalentumisia tai varauksia?",
+      "expects": {"type": "text", "keywords": ["arvonalentuminen", "varaus"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q014",
+      "category": "3_rahoitus",
+      "question": "Mikä on toiminnan nettorahavirta 2024?",
+      "expects": {"type": "number", "page_range": [130, 145], "keywords": ["rahoituslaskelma"]},
+      "priority": "must"
+    },
+    {
+      "id": "Q015",
+      "category": "3_rahoitus",
+      "question": "Mikä on investointien rahavirta 2024?",
+      "expects": {"type": "number", "page_range": [130, 145]},
+      "priority": "must"
+    },
+    {
+      "id": "Q016",
+      "category": "3_rahoitus",
+      "question": "Mikä on nettoinvestointitaso 2024?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q017",
+      "category": "3_rahoitus",
+      "question": "Mikä on investointien tulorahoitusprosentti (vuosikate/nettoinvestoinnit)?",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q018",
+      "category": "4_investoinnit",
+      "question": "Mitkä ovat 5 suurinta investointihanketta 2024?",
+      "expects": {"type": "list", "keywords": ["investointi", "hanke"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q019",
+      "category": "4_investoinnit",
+      "question": "Onko investointien painopiste peruskorjauksissa vai uudisrakentamisessa?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q020",
+      "category": "4_investoinnit",
+      "question": "Onko omaisuuden myyntejä tehty vuonna 2024?",
+      "expects": {"type": "text", "keywords": ["myynti", "luovutus"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q021",
+      "category": "5_budjetti",
+      "question": "Mitkä ovat tärkeimmät poikkeamat talousarvioon nähden?",
+      "expects": {"type": "analysis", "keywords": ["poikkeama", "budjetti", "toteuma"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q022",
+      "category": "5_budjetti",
+      "question": "Selitä 3 suurinta poikkeamaa budjettiin: syy ja vaikutus.",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q023",
+      "category": "5_budjetti",
+      "question": "Miten talousarvion sitovuus on määritelty?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q024",
+      "category": "6_verotulot",
+      "question": "Paljonko oli verotulot yhteensä 2024?",
+      "expects": {"type": "number", "expected_value": 31200000, "tolerance": 500000},
+      "priority": "must"
+    },
+    {
+      "id": "Q025",
+      "category": "6_verotulot",
+      "question": "Paljonko oli valtionosuudet 2024?",
+      "expects": {"type": "number", "expected_value": 13900000, "tolerance": 500000},
+      "priority": "must"
+    },
+    {
+      "id": "Q026",
+      "category": "6_verotulot",
+      "question": "Mikä on korkoriski: korkokulut 2024 ja korkosuojaus?",
+      "expects": {"type": "text", "keywords": ["korko", "riski"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q027",
+      "category": "6_verotulot",
+      "question": "Jos korkotaso nousisi 1%-yksikön, mikä olisi lisäkulurasitus?",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q028",
+      "category": "7_vastuut",
+      "question": "Mitkä ovat taseen ulkopuoliset vastuut ja niiden suuruusluokka?",
+      "expects": {"type": "number", "keywords": ["vastuu", "takaus"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q029",
+      "category": "7_vastuut",
+      "question": "Keille takauksia on annettu?",
+      "expects": {"type": "list", "keywords": ["takaus"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q030",
+      "category": "7_vastuut",
+      "question": "Onko merkittäviä leasing- tai vuokrasopimusvastuita?",
+      "expects": {"type": "text", "keywords": ["leasing", "vuokra"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q031",
+      "category": "8_konserni",
+      "question": "Mikä on konsernin vuosikate ja tulos?",
+      "expects": {"type": "number", "keywords": ["konserni"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q032",
+      "category": "8_konserni",
+      "question": "Mitkä tytäryhtiöt vaikuttavat eniten konsernin riskiin?",
+      "expects": {"type": "list", "keywords": ["tytäryhtiö", "konserni"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q033",
+      "category": "8_konserni",
+      "question": "Onko konsernin sisäisiä eriä merkittävästi?",
+      "expects": {"type": "text", "keywords": ["sisäinen", "eliminointi"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q034",
+      "category": "9_palvelualueet",
+      "question": "Mitkä ovat keskeiset palvelualuekohtaiset nettokustannukset 2024?",
+      "expects": {"type": "table", "keywords": ["palvelualue", "netto"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q035",
+      "category": "9_palvelualueet",
+      "question": "Missä palvelualueissa kustannus/asukas kasvoi eniten?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q036",
+      "category": "9_palvelualueet",
+      "question": "Toteutuivatko strategiset tavoitteet? Nosta 5 esimerkkiä.",
+      "expects": {"type": "list", "keywords": ["tavoite", "strategia"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q037",
+      "category": "10_henkilosto",
+      "question": "Mikä on henkilöstömäärä (htv tai kokonaismäärä) vuoden 2024 lopussa?",
+      "expects": {"type": "number", "expected_value": 470, "tolerance": 50, "page_range": [15, 25]},
+      "priority": "must"
+    },
+    {
+      "id": "Q038",
+      "category": "10_henkilosto",
+      "question": "Mikä on vakinaisen henkilöstön määrä 2024?",
+      "expects": {"type": "number", "expected_value": 470, "tolerance": 10},
+      "priority": "must"
+    },
+    {
+      "id": "Q039",
+      "category": "10_henkilosto",
+      "question": "Paljonko oli palkkamenot 2024 ja muutos edellisvuoteen?",
+      "expects": {"type": "number", "keywords": ["palkka", "henkilöstö"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q040",
+      "category": "10_henkilosto",
+      "question": "Mikä on sairauspoissaolojen trendi?",
+      "expects": {"type": "text", "keywords": ["sairaus", "poissaolo"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q041",
+      "category": "11_liitetiedot",
+      "question": "Mitkä ovat tärkeimmät liitetiedot jotka vaikuttavat tulkintaan?",
+      "expects": {"type": "list", "keywords": ["liite", "arvostus", "poisto"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q042",
+      "category": "11_liitetiedot",
+      "question": "Onko tapahtumia tilikauden jälkeen?",
+      "expects": {"type": "text", "keywords": ["tilikauden jälkeen"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q043",
+      "category": "12_tarkastus",
+      "question": "Onko tilintarkastuksessa huomautuksia?",
+      "expects": {"type": "text", "keywords": ["tilintarkastus", "huomautus"]},
+      "priority": "must"
+    },
+    {
+      "id": "Q044",
+      "category": "12_tarkastus",
+      "question": "Mitkä ovat arviointikertomuksen 3 keskeisintä havaintoa?",
+      "expects": {"type": "list", "keywords": ["arviointi", "havainto"]},
+      "priority": "should"
+    },
+    {
+      "id": "Q045",
+      "category": "13_qa_testit",
+      "question": "Täsmäytys: tilikauden tulos muuttuu oman pääoman muutokseksi oikein?",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q046",
+      "category": "13_qa_testit",
+      "question": "Täsmäytys: vuosikate - investoinnit - lainamuutos = kassamuutos?",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q047",
+      "category": "13_qa_testit",
+      "question": "Taulukoiden summat: täsmäävätkö rivit ja sarakkeet?",
+      "expects": {"type": "validation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q048",
+      "category": "13_qa_testit",
+      "question": "Punaiset liput: onko yli 20% muutoksia ilman selitystä?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q049",
+      "category": "13_qa_testit",
+      "question": "Ristiriitaiset väitteet: löytyykö samasta asiasta eri selityksiä?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q050",
+      "category": "14_mittarit",
+      "question": "Tee yhteenvetotaulukko 2023 vs 2024: toimintakate, vuosikate, poistot, tulos.",
+      "expects": {"type": "table"},
+      "priority": "should"
+    },
+    {
+      "id": "Q051",
+      "category": "14_mittarit",
+      "question": "Laske muutos-% kaikille päämittareille ja nosta 3 suurinta muutosta.",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q052",
+      "category": "14_mittarit",
+      "question": "Laske vuosikate/poistot-suhde ja luokittele talouden tila.",
+      "expects": {"type": "calculation", "expected_ratio": 1.09},
+      "priority": "must"
+    },
+    {
+      "id": "Q053",
+      "category": "14_mittarit",
+      "question": "Laske investointien tulorahoitusprosentti.",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q054",
+      "category": "14_mittarit",
+      "question": "Laske lainat per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q055",
+      "category": "14_mittarit",
+      "question": "Laske maksuvalmiusindikaattori: rahavarat / lyhytaikaiset velat.",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q056",
+      "category": "14_mittarit",
+      "question": "Laske korkokulut suhteessa toimintatuottoihin.",
+      "expects": {"type": "calculation"},
+      "priority": "should"
+    },
+    {
+      "id": "Q057",
+      "category": "14_mittarit",
+      "question": "Tee rahoitusasemaprofiili: vuosikate, investoinnit, lainamuutos, kassamuutos.",
+      "expects": {"type": "table"},
+      "priority": "should"
+    },
+    {
+      "id": "Q058",
+      "category": "14_mittarit",
+      "question": "Nosta 10 suurinta euromuutosta tuloslaskelmasta.",
+      "expects": {"type": "list"},
+      "priority": "should"
+    },
+    {
+      "id": "Q059",
+      "category": "14_mittarit",
+      "question": "Nosta 10 suurinta euromuutosta taseesta.",
+      "expects": {"type": "list"},
+      "priority": "should"
+    },
+    {
+      "id": "Q060",
+      "category": "15_per_asukas",
+      "question": "Laske toimintakate per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q061",
+      "category": "15_per_asukas",
+      "question": "Laske verorahoitus per asukas (verotulot + valtionosuudet) 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q062",
+      "category": "15_per_asukas",
+      "question": "Laske nettoinvestoinnit per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q063",
+      "category": "15_per_asukas",
+      "question": "Laske lainat per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q064",
+      "category": "15_per_asukas",
+      "question": "Laske vuosikate per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population", "expected_value": 535},
+      "priority": "should"
+    },
+    {
+      "id": "Q065",
+      "category": "15_per_asukas",
+      "question": "Laske palvelualueiden nettokustannukset per asukas.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q066",
+      "category": "15_per_asukas",
+      "question": "Laske henkilöstömenot per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q067",
+      "category": "15_per_asukas",
+      "question": "Laske korkokulut per asukas 2024.",
+      "expects": {"type": "calculation", "requires": "population"},
+      "priority": "should"
+    },
+    {
+      "id": "Q068",
+      "category": "16_tasapaino",
+      "question": "Mikä on kertynyt ylijäämä/alijäämä taseessa 2024?",
+      "expects": {"type": "number", "expected_value": 27400000},
+      "priority": "must"
+    },
+    {
+      "id": "Q069",
+      "category": "16_tasapaino",
+      "question": "Onko maininta alijäämän kattamisvelvollisuudesta?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q070",
+      "category": "16_tasapaino",
+      "question": "Jos alijäämää on, mikä on kattamisaikataulu?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q071",
+      "category": "16_tasapaino",
+      "question": "Onko tilintarkastuksessa huomioita talouden tasapainosta?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q072",
+      "category": "16_tasapaino",
+      "question": "Onko lainakannan kasvu perusteltu investointiohjelmalla?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q073",
+      "category": "16_tasapaino",
+      "question": "Täyttääkö talous kestävän rahoituksen kriteerit?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q074",
+      "category": "17_riskit",
+      "question": "Takaukset yhteensä euroina ja muutos edellisvuoteen?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q075",
+      "category": "17_riskit",
+      "question": "Vuokravastuut ja leasing-vastuut yhteensä?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q076",
+      "category": "17_riskit",
+      "question": "Johdannaisten nimellisarvot ja käypä arvo?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q077",
+      "category": "17_riskit",
+      "question": "Pakolliset varaukset ja niiden käyttötarkoitus?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q078",
+      "category": "17_riskit",
+      "question": "Onko oikeusriitoja tai korvausvastuita?",
+      "expects": {"type": "text"},
+      "priority": "should"
+    },
+    {
+      "id": "Q079",
+      "category": "17_riskit",
+      "question": "Paljonko oli arvonalentumisia euroina?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q080",
+      "category": "17_riskit",
+      "question": "Tapahtumat tilikauden jälkeen: euromääräinen vaikutus?",
+      "expects": {"type": "number"},
+      "priority": "should"
+    },
+    {
+      "id": "Q081",
+      "category": "17_riskit",
+      "question": "Lista 5 suurimmasta riskierästä euroissa.",
+      "expects": {"type": "list"},
+      "priority": "should"
+    },
+    {
+      "id": "Q082",
+      "category": "18_outcome",
+      "question": "Listaa kaikki raportoidut palvelutaso/suoritemittarit.",
+      "expects": {"type": "list"},
+      "priority": "should"
+    },
+    {
+      "id": "Q083",
+      "category": "18_outcome",
+      "question": "10 tärkeintä mittaria: vertaa 2023 vs 2024.",
+      "expects": {"type": "table"},
+      "priority": "should"
+    },
+    {
+      "id": "Q084",
+      "category": "18_outcome",
+      "question": "5 mittaria joissa suunta heikkeni - selitys?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q085",
+      "category": "18_outcome",
+      "question": "5 mittaria joissa suunta parani - selitys?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q086",
+      "category": "18_outcome",
+      "question": "Onko kustannusnousu korreloinut palvelutason paranemiseen?",
+      "expects": {"type": "analysis"},
+      "priority": "should"
+    },
+    {
+      "id": "Q087",
+      "category": "18_outcome",
+      "question": "Palvelualuekohtainen kustannus vs suorite -taulukko.",
+      "expects": {"type": "table"},
+      "priority": "should"
+    },
+    {
+      "id": "Q088",
+      "category": "19_qa",
+      "question": "Yksikkötarkistus: ovatko taulukot € vai 1000€?",
+      "expects": {"type": "validation"},
+      "priority": "must"
+    },
+    {
+      "id": "Q089",
+      "category": "19_qa",
+      "question": "Negatiivisten merkkien tarkistus: esitetäänkö sulkeissa vai miinusmerkillä?",
+      "expects": {"type": "validation"},
+      "priority": "must"
+    },
+    {
+      "id": "Q090",
+      "category": "19_qa",
+      "question": "Taulukoiden summatarkistus: täsmäävätkö rivi- ja sarakesummat?",
+      "expects": {"type": "validation"},
+      "priority": "must"
+    }
+  ],
+  "summary": {
+    "total": 90,
+    "must": 20,
+    "should": 70,
+    "categories": {
+      "0_kartoitus": 3,
+      "1_tuloslaskelma": 5,
+      "2_tase": 5,
+      "3_rahoitus": 4,
+      "4_investoinnit": 3,
+      "5_budjetti": 3,
+      "6_verotulot": 4,
+      "7_vastuut": 3,
+      "8_konserni": 3,
+      "9_palvelualueet": 3,
+      "10_henkilosto": 4,
+      "11_liitetiedot": 2,
+      "12_tarkastus": 2,
+      "13_qa_testit": 5,
+      "14_mittarit": 10,
+      "15_per_asukas": 8,
+      "16_tasapaino": 6,
+      "17_riskit": 8,
+      "18_outcome": 6,
+      "19_qa": 3
+    }
+  }
+}
+

@@ -204,14 +204,26 @@ LÄHTEET: [sivu ja taulukko mistä luvut löytyvät]
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
     outputs = model.generate(
         **inputs,
-        max_new_tokens=300,
+        max_new_tokens=200,
         do_sample=False,
+        repetition_penalty=1.2,
         pad_token_id=tokenizer.pad_token_id,
         eos_token_id=tokenizer.eos_token_id,
     )
     
     generated = outputs[0][inputs["input_ids"].shape[1]:]
     answer = tokenizer.decode(generated, skip_special_tokens=True)
+    
+    # Remove repeated lines
+    lines = answer.split('\n')
+    seen = set()
+    unique_lines = []
+    for line in lines:
+        line_clean = line.strip()
+        if line_clean and line_clean not in seen:
+            unique_lines.append(line)
+            seen.add(line_clean)
+    answer = '\n'.join(unique_lines)
     
     return answer
 
